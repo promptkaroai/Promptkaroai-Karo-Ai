@@ -1,8 +1,15 @@
 // ==========================================
-// PROMPTKARO - MAIN APP SCRIPT (MULTI-FALLBACK ENGINE)
+// PROMPTKARO - MAIN APP SCRIPT (DUAL-REPO & MULTI-FALLBACK ENGINE)
 // ==========================================
 
 const GITHUB_BASE_URL = "https://raw.githubusercontent.com/freeearningsonline/Ai-Prompt-/main/images/";
+const REPO_RAW_BASE = "https://raw.githubusercontent.com/freeearningsonline/Ai-Prompt-/main/";
+
+// Nayi website ya doosri source se images/data uthane ke liye backup base URLs
+const ALTERNATIVE_IMAGE_SOURCES = [
+    "https://raw.githubusercontent.com/promptkaroai/promptkaroai.github.io/main/images/",
+    "https://promptkaroai.github.io/images/"
+];
 
 function resolveMediaSrc(mediaVal) {
     if (!mediaVal) return "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe"; 
@@ -12,6 +19,7 @@ function resolveMediaSrc(mediaVal) {
     if (typeof mediaVal === 'string' && mediaVal.startsWith("/videos/")) {
         return mediaVal;
     }
+    // Agar primary se na mile toh default GITHUB_BASE_URL use hoga
     return GITHUB_BASE_URL + mediaVal;
 }
 window.resolveImageSrc = resolveMediaSrc;
@@ -34,7 +42,7 @@ window.appState = {
     githubAutoPrompts: [],
     promptsList: [],
     blogsList: [],
-    toolsList: [], // AI Components/Tools list add ki gayi hai
+    toolsList: [],
     categories: ["Viral", "IG Trend", "Boys", "Girls", "Fruit Couples 🍎🍌", "Marketing Poster", "Couple 👩‍❤️‍👨", "J🥀M", "👑Quote🦋", "Auto Gallery"],
     currentFilter: 'All',
     displayedPromptsCount: 10,
@@ -64,10 +72,10 @@ window.addEventListener('DOMContentLoaded', () => {
     updateThemeIcons();
     renderCategoryPills(window.appState.categories);
     
-    // Auto load with multi-source fallback
+    // Auto load data & tools from multiple fallback sources
     window.fetchLocalDatabase();
     window.fetchGithubAutoImages();
-    window.fetchToolsData(); // AI Tools / Components fetch karne ke liye function call
+    window.fetchToolsData();
 
     const dSearch = document.getElementById('desktopSearch');
     const mSearch = document.getElementById('mobileSearch');
@@ -178,23 +186,30 @@ function renderCategoryPills(categories) {
     });
 }
 
-// FETCH TOOLS DATA FROM tools.json
+// FETCH TOOLS FROM MULTIPLE SOURCES (Including promptkaroai.github.io domain fallback)
 window.fetchToolsData = async function() {
-    try {
-        const res = await fetch("tools.json?t=" + Date.now());
-        if (res.ok) {
-            const data = await res.json();
-            if (data && data.tools) {
-                window.appState.toolsList = data.tools;
-                renderAiComponents();
+    const sources = [
+        REPO_RAW_BASE + "tools.json?t=" + Date.now(),
+        "https://promptkaroai.github.io/tools.json?t=" + Date.now(),
+        "tools.json?t=" + Date.now(),
+        "./tools.json?t=" + Date.now()
+    ];
+
+    for (let url of sources) {
+        try {
+            const res = await fetch(url);
+            if (res.ok) {
+                const data = await res.json();
+                if (data && data.tools) {
+                    window.appState.toolsList = data.tools;
+                    renderAiComponents();
+                    break;
+                }
             }
-        }
-    } catch (e) {
-        console.log("Could not load tools.json");
+        } catch (e) {}
     }
 };
 
-// RENDER AI COMPONENTS SECTION
 function renderAiComponents() {
     const grid = document.getElementById('aiComponentsGrid');
     if (!grid) return;
@@ -211,7 +226,7 @@ function renderAiComponents() {
         card.innerHTML = `
             <div>
                 <div class="ai-comp-img">
-                    <img src="${finalImg}" alt="${tool.title}" loading="lazy">
+                    <img src="${finalImg}" alt="${tool.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe'">
                 </div>
                 <h3 class="text-sm font-bold text-white mb-1">${tool.title}</h3>
                 <p class="text-xs text-slate-400 line-clamp-2 mb-3">${tool.description}</p>
@@ -222,13 +237,14 @@ function renderAiComponents() {
     });
 }
 
-// 3-LAYER MULTI-SOURCE FETCH FOR MAXIMUM RELIABILITY
+// FETCH PROMPTS DATABASE WITH MULTI-DOMAIN FALLBACKS
 window.fetchLocalDatabase = async function() {
     let data = null;
     const sources = [
+        REPO_RAW_BASE + "prompts.json?t=" + Date.now(),
+        "https://promptkaroai.github.io/prompts.json?t=" + Date.now(),
         "prompts.json?t=" + Date.now(),
         "./prompts.json?t=" + Date.now(),
-        "https://raw.githubusercontent.com/freeearningsonline/Ai-Prompt-/main/prompts.json?t=" + Date.now(),
         "https://aiprom-98a50-default-rtdb.firebaseio.com/.json"
     ];
 
@@ -249,7 +265,6 @@ window.fetchLocalDatabase = async function() {
         return;
     }
 
-    // 1. Process Prompts
     let arr = [];
     if (data.prompts) {
         for (let subKey in data.prompts) {
@@ -266,14 +281,12 @@ window.fetchLocalDatabase = async function() {
     }
     window.appState.localPrompts = arr;
 
-    // 2. Process Categories
     if (data.categories && Array.isArray(data.categories)) {
         const uniqueCats = Array.from(new Set([...data.categories, "Auto Gallery"]));
         window.appState.categories = uniqueCats;
         renderCategoryPills(window.appState.categories);
     }
 
-    // 3. Process Blogs
     if (data.blogs) {
         let bArr = [];
         for (let bKey in data.blogs) {
@@ -360,7 +373,7 @@ function renderPrompts() {
         const isNew = index < 5 && !p.id.startsWith('auto_'); 
 
         card.innerHTML = `
-            ${isVideo ? `<video src="${finalUrl}" class="absolute inset-0 w-full h-full object-cover" muted playsinline loop></video>` : `<img src="${finalUrl}" alt="${p.title || 'AI Image Prompt'}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`}
+            ${isVideo ? `<video src="${finalUrl}" class="absolute inset-0 w-full h-full object-cover" muted playsinline loop></video>` : `<img src="${finalUrl}" alt="${p.title || 'AI Image Prompt'}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe'" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`}
             <div class="absolute top-2 right-2 flex gap-1 z-10">
                 ${isNew ? `<span class="bg-amber-500 text-[8px] px-2 py-0.5 rounded-full font-black text-slate-950 uppercase tracking-wide animate-pulse">NEW</span>` : ''}
                 <span class="bg-emerald-500/90 text-[8px] px-2 py-0.5 rounded-full font-bold text-white">FREE</span>
@@ -401,7 +414,7 @@ function renderBlogs() {
         const dateStr = blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : 'Recent';
 
         card.innerHTML = `
-            <img src="${finalImg}" alt="${blog.title}" loading="lazy" class="w-full h-48 object-cover">
+            <img src="${finalImg}" alt="${blog.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe'" class="w-full h-48 object-cover">
             <div class="p-5 flex-grow flex flex-col justify-between space-y-3">
                 <div class="space-y-2">
                     <span class="text-[10px] bg-brand-500/10 text-brand-500 font-bold px-2 py-0.5 rounded-full uppercase">${blog.category || 'AI Guide'}</span>
@@ -435,7 +448,7 @@ function cleanSchemaObj(obj) {
 
 function injectAdvancedSchema(pageType, data = null, listData = []) {
     try {
-        const baseUrl = "https://freeearningsonline.github.io/";
+        const baseUrl = "https://promptkaroai.github.io/";
         const currentUrl = window.location.href;
         const logoUrl = "https://raw.githubusercontent.com/freeearningsonline/Ai-Prompt-/main/images/logo.png";
         
