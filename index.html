@@ -9,38 +9,39 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
     <link rel="preconnect" href="https://aiprom-98a50-default-rtdb.firebaseio.com" crossorigin>
-<meta name="google-adsense-account" content="ca-pub-3071493838743593">
-    <!-- METADATA FOR SEO, GEO & AEO (IDs added for dynamic JavaScript SEO) -->
+    <meta name="google-adsense-account" content="ca-pub-3071493838743593">
+    
+    <!-- METADATA FOR SEO, GEO & AEO -->
     <title id="meta-title">PromptKaro - Free AI Prompt Sharing Platform & Library</title>
     <meta id="meta-desc" name="description" content="Explore, copy, and share 100% free AI prompts for Midjourney v6, ChatGPT (GPT-4o), Flux AI, and Bing Creator. Learn prompt engineering with our guides.">
     <meta name="keywords" content="AI Prompts, Midjourney Prompts, ChatGPT Prompts, Flux AI, Free AI Prompts, Prompt Engineering Guide, PromptKaro">
     <meta name="author" content="Nazim Mustafa">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
-    <!-- STRICT SINGLE CANONICAL URL (ID added) -->
-    <link id="meta-canonical" rel="canonical" href="https://freeearningsonline.github.io/">
+    <!-- STRICT SINGLE CANONICAL URL -->
+    <link id="meta-canonical" rel="canonical" href="https://promptkaroai.github.io/">
 
-    <!-- OPEN GRAPH (IDs added) -->
+    <!-- OPEN GRAPH -->
     <meta id="og-title" property="og:title" content="PromptKaro - Free AI Prompt Sharing Platform">
     <meta id="og-desc" property="og:description" content="Copy tested, high-quality AI image and text prompt formulas for Midjourney, ChatGPT, and Flux AI.">
     <meta id="og-image" property="og:image" content="https://raw.githubusercontent.com/freeearningsonline/Ai-Prompt-/main/images/logo.png">
     <meta property="og:type" content="website">
-    <meta id="og-url" property="og:url" content="https://freeearningsonline.github.io/">
+    <meta id="og-url" property="og:url" content="https://promptkaroai.github.io/">
     <meta property="og:site_name" content="PromptKaro">
 
-    <!-- TWITTER CARD (IDs added) -->
+    <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary_large_image">
     <meta id="twitter-title" name="twitter:title" content="PromptKaro - Free AI Prompts Library">
     <meta id="twitter-desc" name="twitter:description" content="Copy tested, high-quality AI image and text prompt formulas for Midjourney, ChatGPT, and Flux AI.">
     <meta id="twitter-image" name="twitter:image" content="https://raw.githubusercontent.com/freeearningsonline/Ai-Prompt-/main/images/logo.png">
 
-    <!-- JSON-LD STRUCTURED DATA (Existing Homepage Setup) -->
+    <!-- JSON-LD STRUCTURED DATA -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "PromptKaro",
-      "url": "https://freeearningsonline.github.io/",
+      "url": "https://promptkaroai.github.io/",
       "description": "Free AI prompt sharing platform and prompt engineering guide for ChatGPT, Midjourney, and Flux AI.",
       "publisher": {
         "@type": "Organization",
@@ -57,7 +58,6 @@
     }
     </script>
 
-    <!-- DYNAMIC SCHEMA CONTAINER FOR INDIVIDUAL PAGES -->
     <script id="dynamic-schema" type="application/ld+json"></script>
 
     <!-- NON-BLOCKING TAILWIND CSS -->
@@ -76,7 +76,7 @@
         }
     </script>
 
-    <!-- OPTIMIZED FONT AWESOME (PREVENTS RENDER BLOCKING) -->
+    <!-- FONT AWESOME -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
@@ -85,32 +85,32 @@
         .scrollbar-none::-webkit-scrollbar { display: none; }
         .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Custom Styles for Dynamic AI Components Section */
+        /* Tools / Components Grid Styles */
         .ai-components-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 16px;
         }
         .ai-comp-card {
-            background-color: #16192b;
-            border: 1px solid #22263d;
-            border-radius: 12px;
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 16px;
             padding: 16px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-            color: #ffffff;
+            transition: all 0.3s ease;
         }
         .ai-comp-card:hover {
             transform: translateY(-4px);
             border-color: #0ea5e9;
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.1);
         }
         .ai-comp-img {
             width: 100%;
-            height: 120px;
-            background-color: #1e2238;
-            border-radius: 8px;
+            height: 130px;
+            background-color: #1f2937;
+            border-radius: 12px;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -175,7 +175,7 @@
         <!-- HOMEPAGE FULL EXCLUSIVE CONTENT -->
         <div id="homeExclusiveContent" class="space-y-6">
             
-            <!-- HERO BANNER -->
+            <!-- TOP HERO BANNER -->
             <section class="bg-gradient-to-r from-brand-600 to-indigo-700 text-white p-6 sm:p-8 rounded-3xl shadow-lg relative overflow-hidden">
                 <div class="max-w-2xl space-y-3 relative z-10">
                     <span class="bg-white/20 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">100% Free AI Prompt Library</span>
@@ -204,26 +204,26 @@
             </section>
         </div>
 
+        <!-- ======================================================= -->
+        <!-- AI TOOLS / COMPONENTS SECTION (PLACED RIGHT AFTER TOP BANNER) -->
+        <!-- ======================================================= -->
+        <section id="aiComponentsSection" class="space-y-4 bg-white dark:bg-slate-900/60 p-4 sm:p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex justify-between items-center">
+                <h2 class="text-base sm:text-lg font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-cubes text-brand-500" aria-hidden="true"></i> Common Components & AI Tools
+                </h2>
+                <span class="text-xs text-slate-400 font-medium">Explore All</span>
+            </div>
+            <!-- Dynamic Grid where tools.json items will load -->
+            <div id="aiComponentsGrid" class="ai-components-grid">
+                <!-- Dynamically loaded via script.js -->
+            </div>
+        </section>
+
         <!-- CATEGORY PILLS FILTER -->
         <div id="categoryFiltersContainer" class="flex gap-2 overflow-x-auto pb-2 scrollbar-none min-h-[42px]">
             <!-- Dynamically Rendered Category Pills -->
         </div>
-
-        <!-- ================================================= -->
-        <!-- NEW AI COMPONENTS SECTION (ADDED DIRECTLY ABOVE PROMPTS) -->
-        <!-- ================================================= -->
-        <section id="aiComponentsSection" class="space-y-4 bg-slate-900/40 p-4 sm:p-6 rounded-3xl border border-slate-200 dark:border-slate-800">
-            <div class="flex justify-between items-center">
-                <h2 class="text-base sm:text-lg font-bold flex items-center gap-2">
-                    <i class="fa-solid fa-cubes text-brand-500" aria-hidden="true"></i> Common Components
-                </h2>
-                <a href="#" class="text-xs text-brand-500 font-semibold hover:underline">See All</a>
-            </div>
-            <!-- Dynamic Grid for Tools loaded from tools.json -->
-            <div id="aiComponentsGrid" class="ai-components-grid">
-                <!-- Dynamically injected via script.js -->
-            </div>
-        </section>
 
         <!-- PROMPTS DISPLAY GRID -->
         <section id="promptsSection" class="space-y-4">
@@ -238,7 +238,7 @@
                 <!-- Dynamically Rendered Prompts via script.js -->
             </div>
 
-            <!-- LOAD MORE BUTTON (Added here based on logic in script.js) -->
+            <!-- LOAD MORE BUTTON -->
             <div id="loadMoreContainer" class="hidden flex justify-center mt-8 mb-4">
                 <button type="button" onclick="loadMorePrompts()" class="bg-brand-500 hover:bg-brand-600 text-white text-sm font-bold py-2.5 px-6 rounded-full transition shadow-md flex items-center gap-2">
                     Load More <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
@@ -317,7 +317,7 @@
         </div>
     </div>
 
-    <!-- FOOTER WITH ALL POLICY & TRUST LINKS -->
+    <!-- FOOTER -->
     <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 mt-10 text-center text-xs text-slate-400 space-y-3">
         <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-slate-500 font-semibold mb-2 px-4">
             <a href="about.html" class="hover:text-brand-500 transition">About Us</a>
@@ -333,7 +333,7 @@
         <p>© 2026 PromptKaro. All rights reserved.</p>
     </footer>
 
-    <!-- MAIN APP SCRIPT MODULE -->
+    <!-- SCRIPT MODULE -->
     <script type="module" src="script.js"></script>
 
 </body>
