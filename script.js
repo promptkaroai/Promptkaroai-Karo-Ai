@@ -34,6 +34,7 @@ window.appState = {
     githubAutoPrompts: [],
     promptsList: [],
     blogsList: [],
+    toolsList: [], // AI Components/Tools list add ki gayi hai
     categories: ["Viral", "IG Trend", "Boys", "Girls", "Fruit Couples 🍎🍌", "Marketing Poster", "Couple 👩‍❤️‍👨", "J🥀M", "👑Quote🦋", "Auto Gallery"],
     currentFilter: 'All',
     displayedPromptsCount: 10,
@@ -66,6 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Auto load with multi-source fallback
     window.fetchLocalDatabase();
     window.fetchGithubAutoImages();
+    window.fetchToolsData(); // AI Tools / Components fetch karne ke liye function call
 
     const dSearch = document.getElementById('desktopSearch');
     const mSearch = document.getElementById('mobileSearch');
@@ -94,7 +96,7 @@ function toggleMobileMenu() {
 window.toggleMobileMenu = toggleMobileMenu;
 
 function switchTab(tabId) {
-    const sections = ['homeExclusiveContent', 'categoryFiltersContainer', 'promptsSection', 'blogSection', 'userUploadSection'];
+    const sections = ['homeExclusiveContent', 'categoryFiltersContainer', 'aiComponentsSection', 'promptsSection', 'blogSection', 'userUploadSection'];
     sections.forEach(id => {
         const el = document.getElementById(id);
         if(el) el.classList.add('hidden');
@@ -103,7 +105,7 @@ function switchTab(tabId) {
     window.appState.viewMode = tabId; 
 
     if (tabId === 'home') {
-        ['homeExclusiveContent', 'categoryFiltersContainer', 'promptsSection'].forEach(id => {
+        ['homeExclusiveContent', 'categoryFiltersContainer', 'aiComponentsSection', 'promptsSection'].forEach(id => {
             const el = document.getElementById(id);
             if(el) el.classList.remove('hidden');
         });
@@ -128,10 +130,15 @@ window.handleSearch = function() {
     } else {
         window.appState.displayedPromptsCount = 10; 
         const homeExclusive = document.getElementById('homeExclusiveContent');
+        const aiCompSec = document.getElementById('aiComponentsSection');
         if (searchVal) {
             if (homeExclusive) homeExclusive.classList.add('hidden');
+            if (aiCompSec) aiCompSec.classList.add('hidden');
         } else {
-            if (window.appState.viewMode === 'home' && homeExclusive) homeExclusive.classList.remove('hidden');
+            if (window.appState.viewMode === 'home') {
+                if (homeExclusive) homeExclusive.classList.remove('hidden');
+                if (aiCompSec) aiCompSec.classList.remove('hidden');
+            }
         }
         renderPrompts();
     }
@@ -168,6 +175,50 @@ function renderCategoryPills(categories) {
         if(cat !== 'All' && cat !== 'Video Prompts' && cat !== 'Image Prompts') {
             container.appendChild(createBtn(cat, cat));
         }
+    });
+}
+
+// FETCH TOOLS DATA FROM tools.json
+window.fetchToolsData = async function() {
+    try {
+        const res = await fetch("tools.json?t=" + Date.now());
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.tools) {
+                window.appState.toolsList = data.tools;
+                renderAiComponents();
+            }
+        }
+    } catch (e) {
+        console.log("Could not load tools.json");
+    }
+};
+
+// RENDER AI COMPONENTS SECTION
+function renderAiComponents() {
+    const grid = document.getElementById('aiComponentsGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    if (!window.appState.toolsList || window.appState.toolsList.length === 0) return;
+
+    window.appState.toolsList.forEach(tool => {
+        const card = document.createElement('div');
+        card.className = "ai-comp-card";
+        
+        const finalImg = window.resolveImageSrc(tool.image);
+
+        card.innerHTML = `
+            <div>
+                <div class="ai-comp-img">
+                    <img src="${finalImg}" alt="${tool.title}" loading="lazy">
+                </div>
+                <h3 class="text-sm font-bold text-white mb-1">${tool.title}</h3>
+                <p class="text-xs text-slate-400 line-clamp-2 mb-3">${tool.description}</p>
+            </div>
+            <a href="${tool.link || '#'}" class="inline-block bg-brand-500 hover:bg-brand-600 text-white text-xs font-semibold py-1.5 px-3 rounded-lg text-center transition">Learn More</a>
+        `;
+        grid.appendChild(card);
     });
 }
 
@@ -367,6 +418,7 @@ function renderBlogs() {
 }
 window.renderBlogs = renderBlogs;
 window.openBlogDetail = function(id) { window.location.href = `blog.html?id=${id}`; };
+
 window.filterCategory = function(cat) {
     window.appState.currentFilter = cat;
     window.appState.displayedPromptsCount = 10;
