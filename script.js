@@ -1,15 +1,9 @@
 // ==========================================
-// PROMPTKARO - MAIN APP SCRIPT (DUAL-REPO & MULTI-FALLBACK ENGINE)
+// PROMPTKARO - MAIN APP SCRIPT (FINAL TOOLS FIX)
 // ==========================================
 
 const GITHUB_BASE_URL = "https://raw.githubusercontent.com/freeearningsonline/Ai-Prompt-/main/images/";
 const REPO_RAW_BASE = "https://raw.githubusercontent.com/freeearningsonline/Ai-Prompt-/main/";
-
-// Nayi website ya doosri source se images/data uthane ke liye backup base URLs
-const ALTERNATIVE_IMAGE_SOURCES = [
-    "https://raw.githubusercontent.com/promptkaroai/promptkaroai.github.io/main/images/",
-    "https://promptkaroai.github.io/images/"
-];
 
 function resolveMediaSrc(mediaVal) {
     if (!mediaVal) return "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe"; 
@@ -19,7 +13,6 @@ function resolveMediaSrc(mediaVal) {
     if (typeof mediaVal === 'string' && mediaVal.startsWith("/videos/")) {
         return mediaVal;
     }
-    // Agar primary se na mile toh default GITHUB_BASE_URL use hoga
     return GITHUB_BASE_URL + mediaVal;
 }
 window.resolveImageSrc = resolveMediaSrc;
@@ -42,7 +35,27 @@ window.appState = {
     githubAutoPrompts: [],
     promptsList: [],
     blogsList: [],
-    toolsList: [],
+    // Direct default tools taaki kabhi blank na rahe
+    toolsList: [
+        {
+            title: "AI Article Writer",
+            description: "Smart text options and auto-generating features for content creators.",
+            image: "https://images.unsplash.com/photo-1542744094-3a31246264d0",
+            link: "#"
+        },
+        {
+            title: "Smart Image Generator",
+            description: "Smart image that generates professional product designs instantly.",
+            image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe",
+            link: "#"
+        },
+        {
+            title: "SEO Optimizer",
+            description: "Optimize for content caching, keyword tracking and analytics.",
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+            link: "#"
+        }
+    ],
     categories: ["Viral", "IG Trend", "Boys", "Girls", "Fruit Couples 🍎🍌", "Marketing Poster", "Couple 👩‍❤️‍👨", "J🥀M", "👑Quote🦋", "Auto Gallery"],
     currentFilter: 'All',
     displayedPromptsCount: 10,
@@ -72,10 +85,12 @@ window.addEventListener('DOMContentLoaded', () => {
     updateThemeIcons();
     renderCategoryPills(window.appState.categories);
     
-    // Auto load data & tools from multiple fallback sources
+    // Render tools immediately using default list, then try fetching JSON
+    renderAiComponents();
+    window.fetchToolsData();
+
     window.fetchLocalDatabase();
     window.fetchGithubAutoImages();
-    window.fetchToolsData();
 
     const dSearch = document.getElementById('desktopSearch');
     const mSearch = document.getElementById('mobileSearch');
@@ -186,13 +201,12 @@ function renderCategoryPills(categories) {
     });
 }
 
-// FETCH TOOLS FROM MULTIPLE SOURCES (Including promptkaroai.github.io domain fallback)
+// FETCH TOOLS WITH FALLBACK TO LOCAL ARRAY
 window.fetchToolsData = async function() {
     const sources = [
-        REPO_RAW_BASE + "tools.json?t=" + Date.now(),
         "https://promptkaroai.github.io/tools.json?t=" + Date.now(),
-        "tools.json?t=" + Date.now(),
-        "./tools.json?t=" + Date.now()
+        REPO_RAW_BASE + "tools.json?t=" + Date.now(),
+        "tools.json?t=" + Date.now()
     ];
 
     for (let url of sources) {
@@ -200,7 +214,7 @@ window.fetchToolsData = async function() {
             const res = await fetch(url);
             if (res.ok) {
                 const data = await res.json();
-                if (data && data.tools) {
+                if (data && data.tools && data.tools.length > 0) {
                     window.appState.toolsList = data.tools;
                     renderAiComponents();
                     break;
@@ -221,7 +235,10 @@ function renderAiComponents() {
         const card = document.createElement('div');
         card.className = "ai-comp-card";
         
-        const finalImg = window.resolveImageSrc(tool.image);
+        let finalImg = tool.image;
+        if (!finalImg.startsWith("http")) {
+            finalImg = window.resolveImageSrc(tool.image);
+        }
 
         card.innerHTML = `
             <div>
@@ -237,14 +254,13 @@ function renderAiComponents() {
     });
 }
 
-// FETCH PROMPTS DATABASE WITH MULTI-DOMAIN FALLBACKS
+// FETCH PROMPTS DATABASE
 window.fetchLocalDatabase = async function() {
     let data = null;
     const sources = [
-        REPO_RAW_BASE + "prompts.json?t=" + Date.now(),
         "https://promptkaroai.github.io/prompts.json?t=" + Date.now(),
+        REPO_RAW_BASE + "prompts.json?t=" + Date.now(),
         "prompts.json?t=" + Date.now(),
-        "./prompts.json?t=" + Date.now(),
         "https://aiprom-98a50-default-rtdb.firebaseio.com/.json"
     ];
 
@@ -420,7 +436,7 @@ function renderBlogs() {
                     <span class="text-[10px] bg-brand-500/10 text-brand-500 font-bold px-2 py-0.5 rounded-full uppercase">${blog.category || 'AI Guide'}</span>
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white line-clamp-2">${blog.title}</h3>
                 </div>
-                <div class="flex justify-between items-center text-[10px] text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-800">
+                <div class="files justify-between items-center text-[10px] text-slate-400 pt-3 border-t border-slate-100 dark:border-slate-800">
                     <span>${dateStr}</span>
                     <span class="font-bold text-brand-500">Read Article ➔</span>
                 </div>
