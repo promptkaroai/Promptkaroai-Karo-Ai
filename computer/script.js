@@ -1,95 +1,146 @@
-/* =========================================================
-   MUSTAFA DIGITAL ACADEMY
-   72-DAY COMPUTER APPLICATIONS COURSE
-   Dynamic JSON Course Engine
-   ========================================================= */
-
 "use strict";
 
+/*
+=========================================================
+MUSTAFA DIGITAL ACADEMY
+72-DAY COMPUTER APPLICATIONS COURSE
+GitHub Pages Safe Version
+=========================================================
+*/
 
-/* =========================================================
-   1. GLOBAL VARIABLES
-   ========================================================= */
+const JSON_URL = new URL("./pc.json", document.baseURI).href;
+
+const PROGRESS_KEY =
+  "mustafa_digital_academy_progress";
+
+const COMPLETION_KEY =
+  "mustafa_course_completion_times";
+
 
 let courseData = null;
-
 let days = [];
-
 let completedDays = [];
-
 let countdownInterval = null;
 
-const STORAGE_KEY = "mustafa_digital_academy_progress";
 
-const JSON_FILE = "pc.json";
+/*
+=========================================================
+DOM
+=========================================================
+*/
 
+const $ = (id) =>
+  document.getElementById(id);
 
-/* =========================================================
-   2. DOM ELEMENTS
-   ========================================================= */
+const loading =
+  $("loading");
 
-const loadingElement =
-  document.getElementById("loading");
+const errorBox =
+  $("errorMessage");
 
-const errorElement =
-  document.getElementById("errorMessage");
+const errorText =
+  $("errorText");
 
-const errorTextElement =
-  document.getElementById("errorText");
+const retryButton =
+  $("retryButton");
 
 const daysContainer =
-  document.getElementById("daysContainer");
+  $("daysContainer");
 
 const progressText =
-  document.getElementById("progressText");
+  $("progressText");
 
 const progressFill =
-  document.getElementById("progressFill");
+  $("progressFill");
 
 const statusText =
-  document.getElementById("statusText");
+  $("statusText");
 
 const totalDaysElement =
-  document.getElementById("totalDays");
+  $("totalDays");
 
-const courseTitleElement =
-  document.getElementById("courseTitle");
+const courseTitle =
+  $("courseTitle");
 
-const courseDescriptionElement =
-  document.getElementById("courseDescription");
+const courseDescription =
+  $("courseDescription");
 
-const academyNameElement =
-  document.getElementById("academyName");
+const academyName =
+  $("academyName");
 
-const currentYearElement =
-  document.getElementById("currentYear");
+const currentYear =
+  $("currentYear");
 
 const lessonModal =
-  document.getElementById("lessonModal");
+  $("lessonModal");
 
 const lessonContent =
-  document.getElementById("lessonContent");
+  $("lessonContent");
+
+const modalClose =
+  $("modalClose");
+
+const modalOverlay =
+  $("modalOverlay");
 
 
-/* =========================================================
-   3. INITIALIZE WEBSITE
-   ========================================================= */
+/*
+=========================================================
+INITIALIZE
+=========================================================
+*/
 
 document.addEventListener(
   "DOMContentLoaded",
-  initializeCourse
+  initialize
 );
 
 
-async function initializeCourse() {
+async function initialize() {
 
-  setCurrentYear();
+  if (currentYear) {
+    currentYear.textContent =
+      new Date().getFullYear();
+  }
 
-  loadSavedProgress();
+  loadProgress();
+
+  if (retryButton) {
+    retryButton.addEventListener(
+      "click",
+      () => location.reload()
+    );
+  }
+
+  if (modalClose) {
+    modalClose.addEventListener(
+      "click",
+      closeLesson
+    );
+  }
+
+  if (modalOverlay) {
+    modalOverlay.addEventListener(
+      "click",
+      closeLesson
+    );
+  }
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (event.key === "Escape") {
+        closeLesson();
+      }
+
+    }
+  );
+
 
   try {
 
-    await loadCourseData();
+    await loadCourse();
 
     prepareCourse();
 
@@ -102,13 +153,18 @@ async function initializeCourse() {
   } catch (error) {
 
     console.error(
-      "Course initialization error:",
+      "COURSE ERROR:",
       error
     );
 
     showError(
-      "Course data load nahi ho saka. " +
-      "Please check karo ke pc.json same folder mein hai."
+      `Course data load nahi ho saka.
+
+URL:
+${JSON_URL}
+
+Error:
+${error.message}`
     );
 
   }
@@ -116,223 +172,230 @@ async function initializeCourse() {
 }
 
 
-/* =========================================================
-   4. CURRENT YEAR
-   ========================================================= */
+/*
+=========================================================
+LOAD JSON
+=========================================================
+*/
 
-function setCurrentYear() {
+async function loadCourse() {
 
-  if (!currentYearElement) {
-    return;
-  }
-
-  currentYearElement.textContent =
-    new Date().getFullYear();
-
-}
-
-
-/* =========================================================
-   5. LOAD JSON
-   ========================================================= */
-
-async function loadCourseData() {
+  /*
+     IMPORTANT:
+     new URL() ensures pc.json is loaded
+     from the same /computer/ directory.
+  */
 
   const response =
-    await fetch(JSON_FILE, {
-      cache: "no-cache"
-    });
+    await fetch(
+      JSON_URL,
+      {
+        method: "GET",
+        cache: "no-store"
+      }
+    );
+
 
   if (!response.ok) {
 
     throw new Error(
-      `HTTP Error: ${response.status}`
+      `HTTP ${response.status}`
     );
 
   }
 
-  courseData =
-    await response.json();
+
+  const contentType =
+    response.headers.get(
+      "content-type"
+    ) || "";
+
+
+  const text =
+    await response.text();
+
+
+  if (!text.trim()) {
+
+    throw new Error(
+      "pc.json empty hai."
+    );
+
+  }
+
+
+  try {
+
+    courseData =
+      JSON.parse(text);
+
+  } catch (error) {
+
+    console.error(
+      "Invalid JSON:",
+      text.substring(0, 300)
+    );
+
+    throw new Error(
+      "pc.json valid JSON nahi hai."
+    );
+
+  }
+
+
+  if (
+    !courseData ||
+    typeof courseData !== "object"
+  ) {
+
+    throw new Error(
+      "pc.json ka structure invalid hai."
+    );
+
+  }
 
 }
 
 
-/* =========================================================
-   6. PREPARE COURSE
-   ========================================================= */
+/*
+=========================================================
+PREPARE COURSE
+=========================================================
+*/
 
 function prepareCourse() {
 
-  if (!courseData) {
-    throw new Error("Course data missing.");
-  }
+  const course =
+    courseData.course || {};
+
+  const requiredDays =
+    Number(
+      course.totalDays
+    ) || 72;
+
 
   days =
-    Array.isArray(courseData.days)
+    Array.isArray(
+      courseData.days
+    )
       ? courseData.days
       : [];
 
-  /*
-     Agar pc.json mein 72 Days nahi hain,
-     system automatically 72 basic Days
-     create karega.
-  */
-
-  if (days.length === 0) {
-
-    days =
-      createDefault72Days();
-
-  }
 
   /*
-     Agar kuch Days missing hon aur totalDays
-     72 ho to remaining Days create kar do.
+     Missing days automatically create
   */
 
-  const requiredDays =
-    courseData.course?.totalDays || 72;
+  const existing =
+    new Set(
+      days.map(
+        day => Number(day.day)
+      )
+    );
 
-  if (days.length < requiredDays) {
 
-    const existingNumbers =
-      new Set(
-        days.map(day => Number(day.day))
+  for (
+    let i = 1;
+    i <= requiredDays;
+    i++
+  ) {
+
+    if (!existing.has(i)) {
+
+      days.push(
+        createDefaultDay(i)
       );
-
-    for (
-      let i = 1;
-      i <= requiredDays;
-      i++
-    ) {
-
-      if (!existingNumbers.has(i)) {
-
-        days.push(
-          createDefaultDay(i)
-        );
-
-      }
 
     }
 
   }
 
-  /*
-     Day number ke according sorting
-  */
 
-  days.sort(
-    (a, b) =>
-      Number(a.day) -
-      Number(b.day)
-  );
+  days =
+    days
+      .sort(
+        (a, b) =>
+          Number(a.day) -
+          Number(b.day)
+      )
+      .slice(
+        0,
+        requiredDays
+      );
 
-  /*
-     Total days update
-  */
 
   if (totalDaysElement) {
-
     totalDaysElement.textContent =
       requiredDays;
+  }
+
+
+  if (
+    academyName &&
+    course.academyName
+  ) {
+
+    academyName.textContent =
+      course.academyName;
 
   }
 
-  /*
-     Course title
-  */
 
   if (
-    courseTitleElement &&
-    courseData.course?.title
+    courseTitle &&
+    course.title
   ) {
 
-    courseTitleElement.textContent =
-      courseData.course.title;
+    courseTitle.textContent =
+      course.title;
 
   }
 
-  /*
-     Academy name
-  */
 
   if (
-    academyNameElement &&
-    courseData.course?.academyName
+    courseDescription &&
+    course.description
   ) {
 
-    academyNameElement.textContent =
-      courseData.course.academyName;
-
-  }
-
-  /*
-     Description
-  */
-
-  if (
-    courseDescriptionElement &&
-    courseData.course?.description
-  ) {
-
-    courseDescriptionElement.textContent =
-      courseData.course.description;
+    courseDescription.textContent =
+      course.description;
 
   }
 
 }
 
 
-/* =========================================================
-   7. DEFAULT 72 DAYS
-   ========================================================= */
-
-function createDefault72Days() {
-
-  const defaultDays = [];
-
-  for (
-    let dayNumber = 1;
-    dayNumber <= 72;
-    dayNumber++
-  ) {
-
-    defaultDays.push(
-      createDefaultDay(dayNumber)
-    );
-
-  }
-
-  return defaultDays;
-
-}
-
-
-/* =========================================================
-   8. DEFAULT DAY
-   ========================================================= */
+/*
+=========================================================
+DEFAULT DAY
+=========================================================
+*/
 
 function createDefaultDay(dayNumber) {
 
-  const week =
-    Math.ceil(dayNumber / 6);
-
   return {
 
-    day: dayNumber,
+    day:
+      dayNumber,
 
     title:
       `Computer Course - Day ${dayNumber}`,
 
-    week: week,
+    week:
+      Math.ceil(
+        dayNumber / 6
+      ),
 
-    duration: 120,
+    duration:
+      120,
 
     unlockAfterPrevious:
       dayNumber === 1
         ? 0
         : 1440,
+
+    learningOutcome:
+      "Practical computer skill develop karna.",
 
     topics: [
       "Computer Practical Training",
@@ -346,78 +409,69 @@ function createDefaultDay(dayNumber) {
       "Independent task"
     ],
 
-    studentTask:
-      `Complete the practical task for Day ${dayNumber}.`,
-
-    learningOutcome:
-      "Student ko practical computer skill develop karni hai.",
-
     teacherGuide: [
-      "Lesson explain karo.",
-      "Practical demonstrate karo.",
-      "Student se practical karwao.",
-      "Student ka work check karo."
+      "Lesson explain karein.",
+      "Practical demonstrate karein.",
+      "Student se practical karwayein.",
+      "Student ka work check karein."
     ],
 
-    homework:
-      "Aaj ke practical ko dobara practice karo.",
+    studentTask:
+      "Aaj ka practical complete karein.",
 
-    assessment: {
-      enabled: false,
-      passingMarks: 60
-    }
+    homework:
+      "Aaj ke practical ki practice karein."
 
   };
 
 }
 
 
-/* =========================================================
-   9. LOCAL STORAGE
-   ========================================================= */
+/*
+=========================================================
+PROGRESS
+=========================================================
+*/
 
-function loadSavedProgress() {
+function loadProgress() {
 
   try {
 
     const saved =
       localStorage.getItem(
-        STORAGE_KEY
+        PROGRESS_KEY
       );
 
-    if (!saved) {
+
+    completedDays =
+      saved
+        ? JSON.parse(saved)
+        : [];
+
+
+    if (
+      !Array.isArray(
+        completedDays
+      )
+    ) {
 
       completedDays = [];
 
-      return;
-
     }
 
-    const parsed =
-      JSON.parse(saved);
 
-    if (
-      Array.isArray(parsed)
-    ) {
+    completedDays =
+      completedDays
+        .map(Number)
+        .filter(
+          number =>
+            Number.isInteger(number) &&
+            number >= 1 &&
+            number <= 72
+        );
 
-      completedDays =
-        parsed
-          .map(Number)
-          .filter(
-            number =>
-              Number.isInteger(number) &&
-              number >= 1 &&
-              number <= 72
-          );
 
-    }
-
-  } catch (error) {
-
-    console.error(
-      "Progress load error:",
-      error
-    );
+  } catch {
 
     completedDays = [];
 
@@ -426,38 +480,19 @@ function loadSavedProgress() {
 }
 
 
-/* =========================================================
-   10. SAVE PROGRESS
-   ========================================================= */
-
 function saveProgress() {
 
-  try {
-
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(
-        completedDays
-      )
-    );
-
-  } catch (error) {
-
-    console.error(
-      "Progress save error:",
-      error
-    );
-
-  }
+  localStorage.setItem(
+    PROGRESS_KEY,
+    JSON.stringify(
+      completedDays
+    )
+  );
 
 }
 
 
-/* =========================================================
-   11. CHECK DAY COMPLETED
-   ========================================================= */
-
-function isDayCompleted(dayNumber) {
+function isCompleted(dayNumber) {
 
   return completedDays.includes(
     Number(dayNumber)
@@ -466,195 +501,21 @@ function isDayCompleted(dayNumber) {
 }
 
 
-/* =========================================================
-   12. GET NEXT DAY
-   ========================================================= */
-
-function getNextDay() {
-
-  for (
-    let i = 1;
-    i <= 72;
-    i++
-  ) {
-
-    if (
-      !isDayCompleted(i)
-    ) {
-
-      return i;
-
-    }
-
-  }
-
-  return 72;
-
-}
-
-
-/* =========================================================
-   13. DAY STATUS
-   ========================================================= */
-
-function getDayStatus(day) {
-
-  const dayNumber =
-    Number(day.day);
-
-  /*
-     Day already completed
-  */
-
-  if (
-    isDayCompleted(dayNumber)
-  ) {
-
-    return {
-      status: "completed",
-      label: "✓ Completed"
-    };
-
-  }
-
-
-  /*
-     Day 1 automatically available
-  */
-
-  if (
-    dayNumber === 1
-  ) {
-
-    return {
-      status: "available",
-      label: "▶ Available"
-    };
-
-  }
-
-
-  /*
-     Previous Day complete hona zaroori
-  */
-
-  if (
-    !isDayCompleted(
-      dayNumber - 1
-    )
-  ) {
-
-    return {
-      status: "locked",
-      label: "🔒 Locked"
-    };
-
-  }
-
-
-  /*
-     Previous Day completion time
-  */
-
-  const completionTime =
-    getCompletionTime(
-      dayNumber - 1
-    );
-
-  /*
-     Agar completion time available nahi
-     to available kar do.
-  */
-
-  if (!completionTime) {
-
-    return {
-      status: "available",
-      label: "▶ Available"
-    };
-
-  }
-
-
-  /*
-     JSON se delay
-  */
-
-  const delayMinutes =
-    Number(
-      day.unlockAfterPrevious
-    ) || 1440;
-
-
-  const unlockTime =
-    completionTime +
-    (
-      delayMinutes *
-      60 *
-      1000
-    );
-
-
-  /*
-     Unlock time aa gaya
-  */
-
-  if (
-    Date.now() >= unlockTime
-  ) {
-
-    return {
-      status: "available",
-      label: "▶ Available"
-    };
-
-  }
-
-
-  /*
-     Still locked
-  */
-
-  return {
-    status: "locked",
-    label: "🔒 Locked",
-    unlockTime:
-      unlockTime
-  };
-
-}
-
-
-/* =========================================================
-   14. COMPLETION TIMES
-   ========================================================= */
-
 /*
-   Important:
-
-   Old simple progress array ko maintain karne ke liye
-   completion timestamps separate localStorage mein
-   save kiye ja rahe hain.
+=========================================================
+COMPLETION TIMES
+=========================================================
 */
-
-const COMPLETION_KEY =
-  "mustafa_course_completion_times";
-
 
 function getCompletionTimes() {
 
   try {
 
-    const data =
+    return JSON.parse(
       localStorage.getItem(
         COMPLETION_KEY
-      );
-
-    if (!data) {
-      return {};
-    }
-
-    return JSON.parse(data);
+      ) || "{}"
+    );
 
   } catch {
 
@@ -667,21 +528,10 @@ function getCompletionTimes() {
 
 function saveCompletionTimes(data) {
 
-  try {
-
-    localStorage.setItem(
-      COMPLETION_KEY,
-      JSON.stringify(data)
-    );
-
-  } catch (error) {
-
-    console.error(
-      "Completion time save error:",
-      error
-    );
-
-  }
+  localStorage.setItem(
+    COMPLETION_KEY,
+    JSON.stringify(data)
+  );
 
 }
 
@@ -691,178 +541,115 @@ function getCompletionTime(dayNumber) {
   const times =
     getCompletionTimes();
 
-  return times[dayNumber]
-    ? Number(times[dayNumber])
-    : null;
+  return Number(
+    times[dayNumber]
+  ) || null;
 
 }
 
 
-/* =========================================================
-   15. COMPLETE DAY
-   ========================================================= */
+/*
+=========================================================
+DAY STATUS
+=========================================================
+*/
 
-function completeDay(dayNumber) {
+function getDayStatus(day) {
 
-  dayNumber =
-    Number(dayNumber);
-
-
-  /*
-     Invalid Day
-  */
-
-  if (
-    !Number.isInteger(dayNumber) ||
-    dayNumber < 1 ||
-    dayNumber > 72
-  ) {
-
-    return;
-
-  }
-
-
-  /*
-     Day already completed
-  */
-
-  if (
-    isDayCompleted(dayNumber)
-  ) {
-
-    return;
-
-  }
-
-
-  /*
-     Check whether Day is actually available
-  */
-
-  const day =
-    days.find(
-      item =>
-        Number(item.day) ===
-        dayNumber
-    );
-
-  if (!day) {
-    return;
-  }
-
-
-  const status =
-    getDayStatus(day);
+  const number =
+    Number(day.day);
 
 
   if (
-    status.status !== "available"
+    isCompleted(number)
   ) {
 
-    alert(
-      "Ye Day abhi available nahi hai."
-    );
-
-    return;
+    return {
+      status: "completed",
+      label: "✓ Completed"
+    };
 
   }
 
 
-  /*
-     Add completion
-  */
+  if (number === 1) {
 
-  completedDays.push(
-    dayNumber
-  );
+    return {
+      status: "available",
+      label: "▶ Available"
+    };
 
-  completedDays =
-    [...new Set(completedDays)]
-      .sort(
-        (a, b) => a - b
-      );
-
-
-  /*
-     Save completion timestamp
-  */
-
-  const times =
-    getCompletionTimes();
-
-  times[dayNumber] =
-    Date.now();
-
-  saveCompletionTimes(times);
-
-  saveProgress();
-
-
-  /*
-     Close lesson
-  */
-
-  closeLesson();
-
-
-  /*
-     Re-render
-  */
-
-  renderDays();
-
-  updateProgress();
-
-  startCountdown();
-
-
-  /*
-     Find next Day
-  */
-
-  const nextDay =
-    dayNumber + 1;
+  }
 
 
   if (
-    nextDay <= 72
+    !isCompleted(
+      number - 1
+    )
   ) {
 
-    setTimeout(
-      () => {
-
-        alert(
-          `Day ${dayNumber} complete! ` +
-          `Day ${nextDay} ka lesson required time ke baad unlock hoga.`
-        );
-
-      },
-      150
-    );
-
-  } else {
-
-    setTimeout(
-      () => {
-
-        alert(
-          "🎉 Congratulations! " +
-          "Aap ne 72 Days complete kar liye hain."
-        );
-
-      },
-      150
-    );
+    return {
+      status: "locked",
+      label: "🔒 Locked"
+    };
 
   }
+
+
+  const previousTime =
+    getCompletionTime(
+      number - 1
+    );
+
+
+  if (!previousTime) {
+
+    return {
+      status: "available",
+      label: "▶ Available"
+    };
+
+  }
+
+
+  const delay =
+    Number(
+      day.unlockAfterPrevious
+    ) || 1440;
+
+
+  const unlockTime =
+    previousTime +
+    delay * 60 * 1000;
+
+
+  if (
+    Date.now() >=
+    unlockTime
+  ) {
+
+    return {
+      status: "available",
+      label: "▶ Available"
+    };
+
+  }
+
+
+  return {
+    status: "locked",
+    label: "🔒 Locked",
+    unlockTime
+  };
 
 }
 
 
-/* =========================================================
-   16. RENDER ALL DAYS
-   ========================================================= */
+/*
+=========================================================
+RENDER DAYS
+=========================================================
+*/
 
 function renderDays() {
 
@@ -870,37 +657,24 @@ function renderDays() {
     return;
   }
 
+
   daysContainer.innerHTML = "";
 
-  /*
-     Hide loading
-  */
 
-  if (loadingElement) {
-    loadingElement.style.display = "none";
+  if (loading) {
+    loading.style.display = "none";
   }
 
-  /*
-     Hide error
-  */
-
-  if (errorElement) {
-    errorElement.style.display = "none";
+  if (errorBox) {
+    errorBox.style.display = "none";
   }
 
-
-  /*
-     Generate every Day
-  */
 
   days.forEach(
     day => {
 
-      const card =
-        createDayCard(day);
-
       daysContainer.appendChild(
-        card
+        createDayCard(day)
       );
 
     }
@@ -909,13 +683,15 @@ function renderDays() {
 }
 
 
-/* =========================================================
-   17. CREATE DAY CARD
-   ========================================================= */
+/*
+=========================================================
+DAY CARD
+=========================================================
+*/
 
 function createDayCard(day) {
 
-  const dayNumber =
+  const number =
     Number(day.day);
 
   const status =
@@ -923,43 +699,39 @@ function createDayCard(day) {
 
 
   const card =
-    document.createElement("article");
+    document.createElement(
+      "article"
+    );
 
   card.className =
     `day-card ${status.status}`;
 
 
-  /*
-     Day Header
-  */
-
   const header =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   header.className =
     "day-card-header";
 
 
-  /*
-     Number
-  */
+  const numberElement =
+    document.createElement(
+      "div"
+    );
 
-  const number =
-    document.createElement("div");
-
-  number.className =
+  numberElement.className =
     "day-number";
 
-  number.textContent =
-    dayNumber;
+  numberElement.textContent =
+    number;
 
-
-  /*
-     Status
-  */
 
   const badge =
-    document.createElement("span");
+    document.createElement(
+      "span"
+    );
 
   badge.className =
     `day-status status-${status.status}`;
@@ -968,58 +740,57 @@ function createDayCard(day) {
     status.label;
 
 
-  header.appendChild(number);
+  header.appendChild(
+    numberElement
+  );
 
-  header.appendChild(badge);
+  header.appendChild(
+    badge
+  );
 
-
-  /*
-     Week
-  */
 
   const week =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
   week.className =
     "week";
 
   week.textContent =
-    `Week ${day.week || Math.ceil(dayNumber / 6)}`;
+    `Week ${
+      day.week ||
+      Math.ceil(number / 6)
+    }`;
 
-
-  /*
-     Title
-  */
 
   const title =
-    document.createElement("h3");
+    document.createElement(
+      "h3"
+    );
 
   title.textContent =
     day.title ||
-    `Day ${dayNumber}`;
+    `Day ${number}`;
 
-
-  /*
-     Description
-  */
 
   const description =
-    document.createElement("p");
+    document.createElement(
+      "p"
+    );
 
   description.className =
     "day-card-description";
 
   description.textContent =
     day.learningOutcome ||
-    "Practical computer lesson";
+    "Practical computer lesson.";
 
-
-  /*
-     Topics
-  */
 
   const topics =
-    document.createElement("ul");
+    document.createElement(
+      "ul"
+    );
 
   topics.className =
     "day-topics";
@@ -1037,111 +808,85 @@ function createDayCard(day) {
       topic => {
 
         const li =
-          document.createElement("li");
+          document.createElement(
+            "li"
+          );
 
         li.textContent =
           topic;
 
-        topics.appendChild(li);
+        topics.appendChild(
+          li
+        );
 
       }
     );
 
 
-  /*
-     Button
-  */
-
   const button =
-    document.createElement("button");
+    document.createElement(
+      "button"
+    );
 
   button.className =
     `day-button ${status.status}`;
 
 
-  /*
-     COMPLETED
-  */
-
   if (
-    status.status === "completed"
+    status.status ===
+    "locked"
   ) {
 
-    button.innerHTML =
-      "✓ Review Lesson";
-
-    button.onclick =
-      () => openLesson(dayNumber);
-
-  }
-
-
-  /*
-     AVAILABLE
-  */
-
-  else if (
-    status.status === "available"
-  ) {
-
-    button.innerHTML =
-      "▶ Start Lesson";
-
-    button.onclick =
-      () => openLesson(dayNumber);
-
-  }
-
-
-  /*
-     LOCKED
-  */
-
-  else {
-
-    button.innerHTML =
+    button.textContent =
       "🔒 Locked";
 
     button.disabled =
       true;
 
+  } else {
+
+    button.textContent =
+      status.status ===
+      "completed"
+        ? "✓ Review Lesson"
+        : "▶ Start Lesson";
+
+    button.addEventListener(
+      "click",
+      () => openLesson(number)
+    );
+
   }
 
 
-  /*
-     Add elements
-  */
-
   card.appendChild(header);
-
   card.appendChild(week);
-
   card.appendChild(title);
-
   card.appendChild(description);
 
+
   if (
-    topicList.length > 0
+    topicList.length
   ) {
 
     card.appendChild(topics);
 
   }
 
+
   card.appendChild(button);
 
 
-  /*
-     Countdown
-  */
-
   if (
-    status.status === "locked" &&
+    status.status ===
+    "locked" &&
     status.unlockTime
   ) {
 
     const countdown =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
     countdown.className =
       "unlock-countdown";
@@ -1150,7 +895,8 @@ function createDayCard(day) {
       status.unlockTime;
 
     countdown.innerHTML =
-      `⏳ Unlocking in <strong>calculating...</strong>`;
+      "⏳ Unlocking in " +
+      "<strong>calculating...</strong>";
 
     card.appendChild(
       countdown
@@ -1164,9 +910,11 @@ function createDayCard(day) {
 }
 
 
-/* =========================================================
-   18. OPEN LESSON
-   ========================================================= */
+/*
+=========================================================
+OPEN LESSON
+=========================================================
+*/
 
 function openLesson(dayNumber) {
 
@@ -1187,12 +935,9 @@ function openLesson(dayNumber) {
     getDayStatus(day);
 
 
-  /*
-     Locked Day cannot open
-  */
-
   if (
-    status.status === "locked"
+    status.status ===
+    "locked"
   ) {
 
     alert(
@@ -1201,11 +946,6 @@ function openLesson(dayNumber) {
 
     return;
 
-  }
-
-
-  if (!lessonModal || !lessonContent) {
-    return;
   }
 
 
@@ -1222,25 +962,25 @@ function openLesson(dayNumber) {
     "false"
   );
 
-
   document.body.style.overflow =
     "hidden";
 
 }
 
 
-/* =========================================================
-   19. BUILD LESSON HTML
-   ========================================================= */
+/*
+=========================================================
+LESSON HTML
+=========================================================
+*/
 
 function buildLessonHTML(day) {
 
-  const dayNumber =
+  const number =
     Number(day.day);
 
-
   const completed =
-    isDayCompleted(dayNumber);
+    isCompleted(number);
 
 
   const topics =
@@ -1261,51 +1001,29 @@ function buildLessonHTML(day) {
       : [];
 
 
-  const topicsHTML =
-    createListHTML(topics);
-
-
-  const practicalHTML =
-    createListHTML(practical);
-
-
-  const teacherHTML =
-    createListHTML(
-      teacherGuide
-    );
-
-
-  const homeworkHTML =
-    day.homework
-      ? escapeHTML(day.homework)
-      : "Aaj ke lesson ki practice dobara karo.";
-
-
   return `
 
     <div class="lesson-header">
 
       <span class="lesson-day">
-        Day ${dayNumber}
+        Day ${number}
       </span>
 
       <h2>
         ${escapeHTML(
           day.title ||
-          `Day ${dayNumber}`
+          `Day ${number}`
         )}
       </h2>
 
       <p>
         Week ${
           day.week ||
-          Math.ceil(dayNumber / 6)
+          Math.ceil(number / 6)
         }
         •
-        ${
-          day.duration ||
-          120
-        } Minutes
+        ${day.duration || 120}
+        Minutes
       </p>
 
     </div>
@@ -1318,12 +1036,10 @@ function buildLessonHTML(day) {
       </h3>
 
       <p>
-        ${
-          escapeHTML(
-            day.learningOutcome ||
-            "Is lesson ka practical skill complete karo."
-          )
-        }
+        ${escapeHTML(
+          day.learningOutcome ||
+          "Is lesson ka practical skill complete karein."
+        )}
       </p>
 
     </section>
@@ -1336,7 +1052,7 @@ function buildLessonHTML(day) {
       </h3>
 
       <ul>
-        ${topicsHTML}
+        ${listHTML(topics)}
       </ul>
 
     </section>
@@ -1349,7 +1065,7 @@ function buildLessonHTML(day) {
       </h3>
 
       <ol>
-        ${practicalHTML}
+        ${listHTML(practical)}
       </ol>
 
     </section>
@@ -1362,7 +1078,7 @@ function buildLessonHTML(day) {
       </h3>
 
       <ol>
-        ${teacherHTML}
+        ${listHTML(teacherGuide)}
       </ol>
 
     </section>
@@ -1375,12 +1091,10 @@ function buildLessonHTML(day) {
       </h3>
 
       <p>
-        ${
-          escapeHTML(
-            day.studentTask ||
-            "Aaj ka practical independently complete karo."
-          )
-        }
+        ${escapeHTML(
+          day.studentTask ||
+          "Aaj ka practical independently complete karein."
+        )}
       </p>
 
     </section>
@@ -1393,7 +1107,10 @@ function buildLessonHTML(day) {
       </h3>
 
       <p>
-        ${homeworkHTML}
+        ${escapeHTML(
+          day.homework ||
+          "Aaj ke practical ki practice karein."
+        )}
       </p>
 
     </section>
@@ -1405,29 +1122,29 @@ function buildLessonHTML(day) {
       ?
 
       `
-      <div class="student-task">
+        <div class="student-task">
 
-        <h3>
-          ✓ Day Completed
-        </h3>
+          <h3>
+            ✓ Day Completed
+          </h3>
 
-        <p>
-          Ye Day successfully complete ho chuka hai.
-        </p>
+          <p>
+            Ye Day successfully complete ho chuka hai.
+          </p>
 
-      </div>
+        </div>
       `
 
       :
 
       `
-      <button
-        class="complete-lesson"
-        onclick="completeDay(${dayNumber})">
+        <button
+          class="complete-lesson"
+          id="completeLessonButton">
 
-        ✓ Mark Day ${dayNumber} as Complete
+          ✓ Mark Day ${number} as Complete
 
-      </button>
+        </button>
       `
     }
 
@@ -1436,11 +1153,13 @@ function buildLessonHTML(day) {
 }
 
 
-/* =========================================================
-   20. CREATE LIST HTML
-   ========================================================= */
+/*
+=========================================================
+LIST HTML
+=========================================================
+*/
 
-function createListHTML(items) {
+function listHTML(items) {
 
   if (
     !Array.isArray(items) ||
@@ -1466,39 +1185,38 @@ function createListHTML(items) {
 }
 
 
-/* =========================================================
-   21. ESCAPE HTML
-   ========================================================= */
+/*
+=========================================================
+ESCAPE HTML
+=========================================================
+*/
 
 function escapeHTML(value) {
 
-  if (
-    value === null ||
-    value === undefined
-  ) {
+  return String(
+    value ?? ""
+  )
 
-    return "";
-
-  }
-
-
-  return String(value)
     .replace(
       /&/g,
       "&amp;"
     )
+
     .replace(
       /</g,
       "&lt;"
     )
+
     .replace(
       />/g,
       "&gt;"
     )
+
     .replace(
       /"/g,
       "&quot;"
     )
+
     .replace(
       /'/g,
       "&#039;"
@@ -1507,15 +1225,174 @@ function escapeHTML(value) {
 }
 
 
-/* =========================================================
-   22. CLOSE LESSON
-   ========================================================= */
+/*
+=========================================================
+COMPLETE DAY
+=========================================================
+*/
+
+document.addEventListener(
+  "click",
+  event => {
+
+    if (
+      event.target &&
+      event.target.id ===
+      "completeLessonButton"
+    ) {
+
+      const text =
+        event.target.textContent;
+
+      const match =
+        text.match(
+          /Day\s+(\d+)/
+        );
+
+      if (match) {
+
+        completeDay(
+          Number(match[1])
+        );
+
+      }
+
+    }
+
+  }
+);
+
+
+function completeDay(dayNumber) {
+
+  dayNumber =
+    Number(dayNumber);
+
+
+  if (
+    !Number.isInteger(dayNumber) ||
+    dayNumber < 1 ||
+    dayNumber > 72
+  ) {
+
+    return;
+
+  }
+
+
+  if (
+    isCompleted(dayNumber)
+  ) {
+
+    return;
+
+  }
+
+
+  const day =
+    days.find(
+      item =>
+        Number(item.day) ===
+        dayNumber
+    );
+
+
+  if (!day) {
+    return;
+  }
+
+
+  const status =
+    getDayStatus(day);
+
+
+  if (
+    status.status !==
+    "available"
+  ) {
+
+    alert(
+      "Ye Day abhi available nahi hai."
+    );
+
+    return;
+
+  }
+
+
+  completedDays.push(
+    dayNumber
+  );
+
+
+  completedDays =
+    [
+      ...new Set(
+        completedDays
+      )
+    ].sort(
+      (a, b) => a - b
+    );
+
+
+  const times =
+    getCompletionTimes();
+
+  times[dayNumber] =
+    Date.now();
+
+
+  saveCompletionTimes(
+    times
+  );
+
+  saveProgress();
+
+
+  closeLesson();
+
+  renderDays();
+
+  updateProgress();
+
+
+  const nextDay =
+    dayNumber + 1;
+
+
+  if (
+    nextDay <= 72
+  ) {
+
+    alert(
+      `Day ${dayNumber} complete! ` +
+      `Day ${nextDay} required waiting time ke baad unlock hoga.`
+    );
+
+  } else {
+
+    alert(
+      "🎉 Congratulations! " +
+      "Aap ne 72 Days complete kar liye hain."
+    );
+
+  }
+
+}
+
+
+/*
+=========================================================
+CLOSE LESSON
+=========================================================
+*/
 
 function closeLesson() {
 
   if (!lessonModal) {
     return;
   }
+
 
   lessonModal.classList.remove(
     "active"
@@ -1532,44 +1409,29 @@ function closeLesson() {
 }
 
 
-/* =========================================================
-   23. ESC KEY CLOSE MODAL
-   ========================================================= */
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if (
-      event.key === "Escape"
-    ) {
-
-      closeLesson();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   24. UPDATE PROGRESS
-   ========================================================= */
+/*
+=========================================================
+PROGRESS
+=========================================================
+*/
 
 function updateProgress() {
 
   const total =
-    courseData?.course?.totalDays ||
-    72;
+    Number(
+      courseData?.course?.totalDays
+    ) || 72;
+
 
   const completed =
     completedDays.length;
 
 
   const percentage =
-    total > 0
+    total
       ? Math.round(
-          (completed / total) *
+          completed /
+          total *
           100
         )
       : 0;
@@ -1602,11 +1464,20 @@ function updateProgress() {
 
     } else {
 
-      const nextDay =
-        getNextDay();
+      let next =
+        1;
+
+      while (
+        completedDays.includes(next) &&
+        next <= total
+      ) {
+
+        next++;
+
+      }
 
       statusText.textContent =
-        `Day ${nextDay}`;
+        `Day ${next}`;
 
     }
 
@@ -1615,9 +1486,11 @@ function updateProgress() {
 }
 
 
-/* =========================================================
-   25. COUNTDOWN SYSTEM
-   ========================================================= */
+/*
+=========================================================
+COUNTDOWN
+=========================================================
+*/
 
 function startCountdown() {
 
@@ -1635,63 +1508,49 @@ function startCountdown() {
 
   countdownInterval =
     setInterval(
-      () => {
-
-        updateCountdowns();
-
-      },
+      updateCountdowns,
       1000
     );
 
 }
 
 
-/* =========================================================
-   26. UPDATE COUNTDOWNS
-   ========================================================= */
-
 function updateCountdowns() {
 
-  const countdownElements =
+  const elements =
     document.querySelectorAll(
       ".unlock-countdown"
     );
 
 
-  let shouldRender =
+  let rerender =
     false;
 
 
-  countdownElements.forEach(
+  elements.forEach(
     element => {
 
-      const unlockTime =
+      const unlock =
         Number(
           element.dataset.unlockTime
         );
 
 
-      if (
-        !unlockTime
-      ) {
+      if (!unlock) {
         return;
       }
 
 
       const remaining =
-        unlockTime -
+        unlock -
         Date.now();
 
-
-      /*
-         Unlock ho gaya
-      */
 
       if (
         remaining <= 0
       ) {
 
-        shouldRender =
+        rerender =
           true;
 
         return;
@@ -1699,21 +1558,26 @@ function updateCountdowns() {
       }
 
 
-      element.innerHTML =
-        `⏳ Unlocking in <strong>${formatTime(
-          remaining
-        )}</strong>`;
+      const strong =
+        element.querySelector(
+          "strong"
+        );
+
+
+      if (strong) {
+
+        strong.textContent =
+          formatTime(
+            remaining
+          );
+
+      }
 
     }
   );
 
 
-  /*
-     Agar koi Day unlock hua,
-     cards re-render karo.
-  */
-
-  if (shouldRender) {
+  if (rerender) {
 
     renderDays();
 
@@ -1724,13 +1588,11 @@ function updateCountdowns() {
 }
 
 
-/* =========================================================
-   27. FORMAT COUNTDOWN
-   ========================================================= */
+function formatTime(
+  milliseconds
+) {
 
-function formatTime(milliseconds) {
-
-  let totalSeconds =
+  let seconds =
     Math.floor(
       milliseconds / 1000
     );
@@ -1738,126 +1600,77 @@ function formatTime(milliseconds) {
 
   const days =
     Math.floor(
-      totalSeconds /
-      86400
+      seconds / 86400
     );
 
-  totalSeconds %=
-    86400;
+  seconds %= 86400;
 
 
   const hours =
     Math.floor(
-      totalSeconds /
-      3600
+      seconds / 3600
     );
 
-  totalSeconds %=
-    3600;
+  seconds %= 3600;
 
 
   const minutes =
     Math.floor(
-      totalSeconds /
-      60
+      seconds / 60
     );
 
-  const seconds =
-    totalSeconds %
-    60;
+  seconds %= 60;
 
 
-  const parts = [];
+  return [
+    days > 0
+      ? `${days}d`
+      : null,
 
+    `${String(hours).padStart(2, "0")}h`,
 
-  if (days > 0) {
+    `${String(minutes).padStart(2, "0")}m`,
 
-    parts.push(
-      `${days}d`
-    );
-
-  }
-
-
-  parts.push(
-    `${String(hours).padStart(2, "0")}h`
-  );
-
-
-  parts.push(
-    `${String(minutes).padStart(2, "0")}m`
-  );
-
-
-  parts.push(
     `${String(seconds).padStart(2, "0")}s`
-  );
 
+  ]
 
-  return parts.join(" ");
+    .filter(Boolean)
+
+    .join(" ");
 
 }
 
 
-/* =========================================================
-   28. SHOW ERROR
-   ========================================================= */
+/*
+=========================================================
+ERROR
+=========================================================
+*/
 
 function showError(message) {
 
-  if (loadingElement) {
-
-    loadingElement.style.display =
+  if (loading) {
+    loading.style.display =
       "none";
-
   }
 
 
   if (daysContainer) {
-
     daysContainer.innerHTML =
       "";
-
   }
 
 
-  if (errorElement) {
-
-    errorElement.style.display =
+  if (errorBox) {
+    errorBox.style.display =
       "block";
-
   }
 
 
-  if (errorTextElement) {
-
-    errorTextElement.textContent =
+  if (errorText) {
+    errorText.textContent =
       message;
-
   }
 
 }
-
-
-/* =========================================================
-   29. PUBLIC FUNCTIONS
-   ========================================================= */
-
-/*
-   HTML onclick attributes ke liye
-   functions globally available rakhna.
-*/
-
-window.openLesson =
-  openLesson;
-
-window.closeLesson =
-  closeLesson;
-
-window.completeDay =
-  completeDay;
-
-
-/* =========================================================
-   END
-   ========================================================= */
