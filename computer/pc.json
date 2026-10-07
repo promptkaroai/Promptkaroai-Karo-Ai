@@ -1,0 +1,2591 @@
+{
+  "course": {
+    "academyName": "Mustafa Digital Academy",
+    "title": "3-Month Certificate in Computer Applications",
+    "description": "A practical 72-day computer course covering Windows, MS Word, MS Excel, Google Chrome, Email and Internet Safety.",
+    "totalDays": 72,
+    "totalWeeks": 12,
+    "classesPerWeek": 6,
+    "classDuration": "2 Hours",
+    "unlockMode": "sequential",
+    "defaultUnlockAfterPrevious": 1440
+  },
+
+  "days": [
+    {
+      "day": 1,
+      "title": "Introduction to Computer",
+      "week": 1,
+      "duration": 120,
+      "unlockAfterPrevious": 0,
+      "learningOutcome": "Student computer ke basic parts identify aur computer ko properly operate kar sake.",
+      "topics": [
+        "Introduction to Computer",
+        "Monitor",
+        "CPU",
+        "Keyboard",
+        "Mouse",
+        "Windows Desktop",
+        "Computer Power ON and Shutdown"
+      ],
+      "practical": [
+        "Computer identify karna",
+        "Monitor, CPU, Keyboard aur Mouse identify karna",
+        "Computer ON karna",
+        "Windows Desktop observe karna",
+        "Proper Shutdown karna"
+      ],
+      "teacherGuide": [
+        "Computer ke basic parts explain karein",
+        "Power button demonstrate karein",
+        "Windows Desktop ke main areas explain karein",
+        "Proper shutdown ka method demonstrate karein"
+      ],
+      "studentTask": "Computer ko ON karein, Desktop observe karein aur teacher ki guidance ke mutabiq proper shutdown karein.",
+      "homework": "Computer ke 5 basic parts ke naam yaad karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 2,
+      "title": "Mouse and Keyboard",
+      "week": 1,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student mouse aur keyboard ke basic controls confidently use kar sake.",
+      "topics": [
+        "Left Click",
+        "Right Click",
+        "Double Click",
+        "Drag and Drop",
+        "Scroll",
+        "Typing",
+        "Enter",
+        "Space",
+        "Backspace",
+        "Delete",
+        "Shift",
+        "Ctrl",
+        "Alt"
+      ],
+      "practical": [
+        "Left click practice",
+        "Right click practice",
+        "Double click practice",
+        "Drag and drop practice",
+        "Mouse scroll practice",
+        "Keyboard par simple sentence type karna",
+        "Enter, Space, Backspace aur Delete use karna",
+        "Shift, Ctrl aur Alt keys identify karna"
+      ],
+      "teacherGuide": [
+        "Mouse ke buttons demonstrate karein",
+        "Drag and drop demonstrate karein",
+        "Keyboard ki important keys explain karein",
+        "Typing practice karwayein"
+      ],
+      "studentTask": "Mouse aur keyboard use karke 5 lines type karein aur basic editing keys use karein.",
+      "homework": "Keyboard ki 10 important keys ke naam aur functions revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 3,
+      "title": "Windows Desktop",
+      "week": 1,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Windows Desktop aur windows management ke basic functions perform kar sake.",
+      "topics": [
+        "Desktop Icons",
+        "Start Menu",
+        "Taskbar",
+        "Search",
+        "Open and Close Programs",
+        "Minimize",
+        "Maximize",
+        "Restore",
+        "Move Windows",
+        "Resize Windows"
+      ],
+      "practical": [
+        "Desktop icons observe karna",
+        "Start Menu open karna",
+        "Taskbar identify karna",
+        "Windows Search use karna",
+        "Program open aur close karna",
+        "Window minimize karna",
+        "Window maximize karna",
+        "Window restore karna",
+        "Window move aur resize karna"
+      ],
+      "teacherGuide": [
+        "Windows Desktop ka layout explain karein",
+        "Start Menu aur Search demonstrate karein",
+        "Window controls demonstrate karein"
+      ],
+      "studentTask": "3 different programs open karein aur unko minimize, maximize, restore aur close karein.",
+      "homework": "Start Menu aur Taskbar ke functions revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 4,
+      "title": "Windows Accessories",
+      "week": 1,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student basic Windows accessories open, use aur save kar sake.",
+      "topics": [
+        "WordPad",
+        "Calculator",
+        "Paint",
+        "Saving Files"
+      ],
+      "practical": [
+        "WordPad open karna",
+        "WordPad mein text type karna",
+        "WordPad document save karna",
+        "Calculator open karna",
+        "Basic calculations perform karna",
+        "Paint open karna",
+        "Simple drawing banana",
+        "Paint file save karna"
+      ],
+      "teacherGuide": [
+        "WordPad ka basic interface explain karein",
+        "Calculator ke basic operations demonstrate karein",
+        "Paint mein simple drawing demonstrate karein",
+        "Files save karne ka method explain karein"
+      ],
+      "studentTask": "WordPad mein 5 lines type karein aur Paint mein simple drawing bana kar save karein.",
+      "homework": "WordPad, Calculator aur Paint ke uses likhein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 5,
+      "title": "Desktop Customization",
+      "week": 1,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student basic Windows personalization settings change kar sake.",
+      "topics": [
+        "Desktop Background",
+        "Screen Settings",
+        "Taskbar",
+        "Date and Time",
+        "Desktop Icons",
+        "Windows Search and Help"
+      ],
+      "practical": [
+        "Desktop background change karna",
+        "Basic screen settings observe karna",
+        "Taskbar settings observe karna",
+        "Date and time check karna",
+        "Desktop icons manage karna",
+        "Windows Search use karna",
+        "Windows Help/Search use karna"
+      ],
+      "teacherGuide": [
+        "Personalization options explain karein",
+        "Background change demonstrate karein",
+        "Date and time settings demonstrate karein"
+      ],
+      "studentTask": "Desktop ko basic level par customize karein aur required settings check karein.",
+      "homework": "Windows personalization ke 5 options ke naam likhein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 6,
+      "title": "Week 1 Practical Test",
+      "week": 1,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Week 1 ke computer aur Windows basics independently perform kare.",
+      "topics": [
+        "Computer Operation",
+        "Mouse and Keyboard",
+        "Windows Desktop",
+        "Windows Accessories",
+        "Desktop Customization"
+      ],
+      "practical": [
+        "Computer ON karna",
+        "Mouse aur keyboard use karna",
+        "Windows Desktop identify karna",
+        "WordPad mein text type karna",
+        "Calculator use karna",
+        "Paint mein drawing banana",
+        "Desktop customization perform karna",
+        "Proper shutdown karna"
+      ],
+      "teacherGuide": [
+        "Students ko independent practical task dein",
+        "Har student ka performance check karein",
+        "Common mistakes correct karein"
+      ],
+      "studentTask": "Complete Week 1 practical independently perform karein.",
+      "homework": "Week 1 ke tamam topics revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 7,
+      "title": "This PC and Drives",
+      "week": 2,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student This PC, drives aur folders browse kar sake.",
+      "topics": [
+        "This PC",
+        "C Drive",
+        "Drives",
+        "Folders",
+        "Properties"
+      ],
+      "practical": [
+        "This PC open karna",
+        "Available drives identify karna",
+        "C Drive open karna",
+        "Folders browse karna",
+        "Folder properties check karna"
+      ],
+      "teacherGuide": [
+        "This PC ka purpose explain karein",
+        "Drive aur folder ka difference explain karein",
+        "Properties window demonstrate karein"
+      ],
+      "studentTask": "This PC open karke available drives aur folders explore karein.",
+      "homework": "Drive, folder aur file ki definitions revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 8,
+      "title": "Creating and Managing Folders",
+      "week": 2,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student folders create, rename, move aur delete kar sake.",
+      "topics": [
+        "Create Folder",
+        "Subfolders",
+        "Rename Folder",
+        "Move Folder",
+        "Delete Folder"
+      ],
+      "practical": [
+        "Main folder create karna",
+        "5 subfolders create karna",
+        "Folder rename karna",
+        "Folder move karna",
+        "Folder delete karna"
+      ],
+      "teacherGuide": [
+        "New Folder method demonstrate karein",
+        "Folder organization explain karein",
+        "Rename, move aur delete demonstrate karein"
+      ],
+      "studentTask": "Computer Course folder create karke us mein 5 subfolders banayein.",
+      "homework": "Folder management ke keyboard shortcuts revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 9,
+      "title": "File Management",
+      "week": 2,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student files ko create, rename, copy, paste aur move kar sake.",
+      "topics": [
+        "Create Text File",
+        "Rename File",
+        "Copy",
+        "Paste",
+        "Move",
+        "Multiple Selection"
+      ],
+      "practical": [
+        "Text file create karna",
+        "File rename karna",
+        "File copy karna",
+        "File paste karna",
+        "File move karna",
+        "Multiple files select karna"
+      ],
+      "teacherGuide": [
+        "File aur folder ka difference explain karein",
+        "Copy aur move ka difference demonstrate karein",
+        "Multiple selection demonstrate karein"
+      ],
+      "studentTask": "5 files create karke unko rename, copy aur move karein.",
+      "homework": "Copy aur Move ka difference revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 10,
+      "title": "Copy, Cut and Drag",
+      "week": 2,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student keyboard shortcuts aur drag-and-drop se files manage kar sake.",
+      "topics": [
+        "Ctrl+C",
+        "Ctrl+V",
+        "Ctrl+X",
+        "Drag and Drop",
+        "Multiple File Selection"
+      ],
+      "practical": [
+        "Ctrl+C use karna",
+        "Ctrl+V use karna",
+        "Ctrl+X use karna",
+        "Drag and drop se files move karna",
+        "Multiple files select karna"
+      ],
+      "teacherGuide": [
+        "Copy, paste aur cut shortcuts demonstrate karein",
+        "Drag and drop explain karein"
+      ],
+      "studentTask": "Different folders ke darmiyan files copy aur move karein.",
+      "homework": "Ctrl+C, Ctrl+V aur Ctrl+X yaad karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 11,
+      "title": "Recycle Bin",
+      "week": 2,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student deleted files ko restore aur permanently delete kar sake.",
+      "topics": [
+        "Delete",
+        "Recycle Bin",
+        "Restore",
+        "Permanent Delete",
+        "Empty Recycle Bin"
+      ],
+      "practical": [
+        "File delete karna",
+        "Recycle Bin open karna",
+        "Deleted file restore karna",
+        "File permanently delete karna",
+        "Recycle Bin empty karna"
+      ],
+      "teacherGuide": [
+        "Recycle Bin ka purpose explain karein",
+        "Restore aur permanent delete demonstrate karein"
+      ],
+      "studentTask": "Test files delete karke restore karein aur phir permanently remove karein.",
+      "homework": "Recycle Bin ke functions revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 12,
+      "title": "File Management Test and Project",
+      "week": 2,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student organized folder structure bana kar complete file management perform kare.",
+      "topics": [
+        "Folder Structure",
+        "File Management",
+        "Copy",
+        "Move",
+        "Rename",
+        "Delete"
+      ],
+      "practical": [
+        "Computer Course folder create karna",
+        "Word folder create karna",
+        "Excel folder create karna",
+        "Pictures folder create karna",
+        "Documents folder create karna",
+        "Practice folder create karna",
+        "Files copy karna",
+        "Files move karna",
+        "Files rename karna",
+        "Unwanted files delete karna"
+      ],
+      "teacherGuide": [
+        "Complete folder project assign karein",
+        "Student ki file organization check karein"
+      ],
+      "studentTask": "Computer Course naam ka complete folder structure prepare karein.",
+      "homework": "Week 2 revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 13,
+      "title": "MS Word Introduction",
+      "week": 3,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student MS Word open karke basic interface identify kar sake.",
+      "topics": [
+        "MS Word",
+        "Ribbon",
+        "Tabs",
+        "Document Area",
+        "Status Bar",
+        "New Document"
+      ],
+      "practical": [
+        "MS Word open karna",
+        "Ribbon identify karna",
+        "Tabs identify karna",
+        "Document area identify karna",
+        "Status bar identify karna",
+        "New document create karna"
+      ],
+      "teacherGuide": [
+        "MS Word interface explain karein",
+        "Ribbon aur tabs demonstrate karein"
+      ],
+      "studentTask": "MS Word open karke interface ke main parts identify karein.",
+      "homework": "MS Word interface ke 6 parts revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 14,
+      "title": "Creating and Saving Documents",
+      "week": 3,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Word document create, save, Save As aur open kar sake.",
+      "topics": [
+        "New Document",
+        "Typing",
+        "Save",
+        "Save As",
+        "Open",
+        "Close"
+      ],
+      "practical": [
+        "New document create karna",
+        "Text type karna",
+        "Document save karna",
+        "Save As use karna",
+        "Specific folder mein save karna",
+        "Saved document open karna",
+        "Document close karna"
+      ],
+      "teacherGuide": [
+        "Save aur Save As ka difference explain karein",
+        "File location demonstrate karein"
+      ],
+      "studentTask": "Apne naam se Word document create karke Computer Course folder mein save karein.",
+      "homework": "Save aur Save As ka difference revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 15,
+      "title": "Selection and Editing",
+      "week": 3,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Word mein text select aur edit kar sake.",
+      "topics": [
+        "Character Selection",
+        "Word Selection",
+        "Sentence Selection",
+        "Paragraph Selection",
+        "Select All",
+        "Delete",
+        "Copy",
+        "Cut",
+        "Paste"
+      ],
+      "practical": [
+        "Character select karna",
+        "Word select karna",
+        "Sentence select karna",
+        "Paragraph select karna",
+        "Select All use karna",
+        "Text delete karna",
+        "Text copy karna",
+        "Text cut karna",
+        "Text paste karna"
+      ],
+      "teacherGuide": [
+        "Different selection methods demonstrate karein",
+        "Copy, cut aur paste demonstrate karein"
+      ],
+      "studentTask": "10-line document mein text selection aur editing exercises perform karein.",
+      "homework": "Select All aur editing shortcuts revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 16,
+      "title": "Clipboard and Drag and Drop",
+      "week": 3,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student clipboard aur drag-and-drop editing techniques use kar sake.",
+      "topics": [
+        "Copy",
+        "Paste",
+        "Cut",
+        "Clipboard",
+        "Drag Text",
+        "Duplicate Text",
+        "Move Paragraph"
+      ],
+      "practical": [
+        "Text copy aur paste karna",
+        "Text cut aur paste karna",
+        "Text drag karna",
+        "Paragraph duplicate karna",
+        "Paragraph move karna"
+      ],
+      "teacherGuide": [
+        "Clipboard concept explain karein",
+        "Drag-and-drop text editing demonstrate karein"
+      ],
+      "studentTask": "Document ke paragraphs ko copy, duplicate aur move karein.",
+      "homework": "Clipboard related shortcuts revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 17,
+      "title": "Find and Replace",
+      "week": 3,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Word mein words aur phrases find aur replace kar sake.",
+      "topics": [
+        "Find",
+        "Replace",
+        "Find All",
+        "Replace Single",
+        "Replace Multiple"
+      ],
+      "practical": [
+        "Word find karna",
+        "Phrase find karna",
+        "Single word replace karna",
+        "Multiple words replace karna",
+        "Find and Replace exercise"
+      ],
+      "teacherGuide": [
+        "Find command demonstrate karein",
+        "Replace command demonstrate karein"
+      ],
+      "studentTask": "Document mein repeated word find karke replace karein.",
+      "homework": "Find and Replace shortcut revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 18,
+      "title": "Undo, Redo and Basic Word Test",
+      "week": 3,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student basic Word editing workflow independently perform kare.",
+      "topics": [
+        "Undo",
+        "Redo",
+        "Editing",
+        "Save",
+        "Open",
+        "Close"
+      ],
+      "practical": [
+        "Text edit karna",
+        "Undo use karna",
+        "Redo use karna",
+        "Document save karna",
+        "Document open karna",
+        "Document close karna"
+      ],
+      "teacherGuide": [
+        "Undo aur Redo demonstrate karein",
+        "Short practical test conduct karein"
+      ],
+      "studentTask": "Teacher ke diye gaye Word editing test ko independently complete karein.",
+      "homework": "Week 3 revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 19,
+      "title": "Font Formatting",
+      "week": 4,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student professional text formatting perform kar sake.",
+      "topics": [
+        "Font",
+        "Font Size",
+        "Bold",
+        "Italic",
+        "Underline",
+        "Font Color",
+        "Text Highlight"
+      ],
+      "practical": [
+        "Font change karna",
+        "Font size change karna",
+        "Bold apply karna",
+        "Italic apply karna",
+        "Underline apply karna",
+        "Font color change karna",
+        "Text highlight karna"
+      ],
+      "teacherGuide": [
+        "Font formatting options demonstrate karein"
+      ],
+      "studentTask": "10-line document ko different font formatting ke sath format karein.",
+      "homework": "Font formatting tools revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 20,
+      "title": "Advanced Text Formatting",
+      "week": 4,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student advanced text formatting tools use kar sake.",
+      "topics": [
+        "Change Case",
+        "Superscript",
+        "Subscript",
+        "Text Effects",
+        "Format Painter"
+      ],
+      "practical": [
+        "Uppercase/lowercase change karna",
+        "Superscript apply karna",
+        "Subscript apply karna",
+        "Text effects apply karna",
+        "Format Painter use karna"
+      ],
+      "teacherGuide": [
+        "Advanced formatting tools demonstrate karein"
+      ],
+      "studentTask": "Science-related text ko advanced formatting ke sath prepare karein.",
+      "homework": "Superscript, Subscript aur Format Painter revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 21,
+      "title": "Text Alignment",
+      "week": 4,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student text aur headings ko correctly align kar sake.",
+      "topics": [
+        "Left Alignment",
+        "Center Alignment",
+        "Right Alignment",
+        "Justify",
+        "Heading"
+      ],
+      "practical": [
+        "Left align text",
+        "Center align heading",
+        "Right align text",
+        "Justify paragraph",
+        "Heading formatting"
+      ],
+      "teacherGuide": [
+        "Four alignment options demonstrate karein"
+      ],
+      "studentTask": "Ek professional notice prepare karein jisme different alignments use hon.",
+      "homework": "Four alignment types revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 22,
+      "title": "Paragraph Formatting",
+      "week": 4,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student paragraph spacing aur indentation control kar sake.",
+      "topics": [
+        "Line Spacing",
+        "Paragraph Spacing",
+        "Indentation",
+        "First Line Indent",
+        "Hanging Indent"
+      ],
+      "practical": [
+        "Line spacing change karna",
+        "Paragraph spacing change karna",
+        "Indentation apply karna",
+        "First-line indent apply karna",
+        "Hanging indent apply karna"
+      ],
+      "teacherGuide": [
+        "Paragraph dialog options explain karein",
+        "Different indentation types demonstrate karein"
+      ],
+      "studentTask": "Three paragraphs ko different spacing aur indentation ke sath format karein.",
+      "homework": "First-line aur hanging indent revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 23,
+      "title": "Bullets and Numbering",
+      "week": 4,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student lists ko bullets aur numbering ke sath professionally format kar sake.",
+      "topics": [
+        "Bullets",
+        "Numbering",
+        "Multilevel List",
+        "Customize Bullets",
+        "Customize Numbering"
+      ],
+      "practical": [
+        "Bulleted list banana",
+        "Numbered list banana",
+        "Multilevel list banana",
+        "Bullet style customize karna",
+        "Numbering customize karna"
+      ],
+      "teacherGuide": [
+        "Bullets aur numbering demonstrate karein"
+      ],
+      "studentTask": "Academy rules ki professional bulleted aur numbered list banayein.",
+      "homework": "Bullets aur numbering revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 24,
+      "title": "Professional Formatting Project",
+      "week": 4,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student professional academy notice create aur format kar sake.",
+      "topics": [
+        "Title",
+        "Heading",
+        "Paragraph",
+        "Bullets",
+        "Numbering",
+        "Alignment",
+        "Colors",
+        "Spacing"
+      ],
+      "practical": [
+        "Professional academy notice create karna",
+        "Title format karna",
+        "Heading format karna",
+        "Paragraph format karna",
+        "Bullets add karna",
+        "Numbering add karna",
+        "Alignment set karna",
+        "Colors aur spacing apply karna"
+      ],
+      "teacherGuide": [
+        "Complete formatting project demonstrate karein",
+        "Students ke projects check karein"
+      ],
+      "studentTask": "Mustafa Digital Academy ke liye professional notice create karein.",
+      "homework": "Week 4 revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 25,
+      "title": "MS Word Tables",
+      "week": 5,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Word mein table create aur data enter kar sake.",
+      "topics": [
+        "Insert Table",
+        "Rows",
+        "Columns",
+        "Cells",
+        "Enter Data",
+        "Resize Table"
+      ],
+      "practical": [
+        "Table insert karna",
+        "Rows aur columns set karna",
+        "Cells mein data enter karna",
+        "Cells select karna",
+        "Rows aur columns resize karna"
+      ],
+      "teacherGuide": [
+        "Table insertion demonstrate karein",
+        "Rows, columns aur cells explain karein"
+      ],
+      "studentTask": "5 columns aur 6 rows ka student table banayein.",
+      "homework": "Table ke basic components revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 26,
+      "title": "Table Editing",
+      "week": 5,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student table mein rows aur columns add, delete, merge aur split kar sake.",
+      "topics": [
+        "Insert Row",
+        "Delete Row",
+        "Insert Column",
+        "Delete Column",
+        "Merge Cells",
+        "Split Cells"
+      ],
+      "practical": [
+        "Row insert karna",
+        "Row delete karna",
+        "Column insert karna",
+        "Column delete karna",
+        "Cells merge karna",
+        "Cells split karna"
+      ],
+      "teacherGuide": [
+        "Table editing commands demonstrate karein"
+      ],
+      "studentTask": "Existing student table ko edit karke rows/columns add aur remove karein.",
+      "homework": "Merge aur Split Cells revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 27,
+      "title": "Table Formatting",
+      "week": 5,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student tables ko professional style mein format kar sake.",
+      "topics": [
+        "Borders",
+        "Shading",
+        "Alignment",
+        "Font",
+        "Table Styles"
+      ],
+      "practical": [
+        "Table borders apply karna",
+        "Cell shading apply karna",
+        "Cell alignment set karna",
+        "Font formatting karna",
+        "Table style apply karna"
+      ],
+      "teacherGuide": [
+        "Professional table formatting demonstrate karein"
+      ],
+      "studentTask": "Student table ko professional result-sheet style mein format karein.",
+      "homework": "Table formatting options revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 28,
+      "title": "Page Setup",
+      "week": 5,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student document page settings correctly configure kar sake.",
+      "topics": [
+        "Margins",
+        "Page Size",
+        "Portrait",
+        "Landscape",
+        "Paper Size",
+        "Page Break"
+      ],
+      "practical": [
+        "Margins change karna",
+        "Page size change karna",
+        "Portrait orientation set karna",
+        "Landscape orientation set karna",
+        "Paper size select karna",
+        "Page break insert karna"
+      ],
+      "teacherGuide": [
+        "Page Setup options demonstrate karein"
+      ],
+      "studentTask": "Ek document ko portrait aur landscape dono formats mein prepare karein.",
+      "homework": "Margins aur orientation revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 29,
+      "title": "Header, Footer and Page Number",
+      "week": 5,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student documents mein header, footer aur page numbers add kar sake.",
+      "topics": [
+        "Header",
+        "Footer",
+        "Page Number",
+        "Date and Time",
+        "Document Title"
+      ],
+      "practical": [
+        "Header add karna",
+        "Footer add karna",
+        "Page number add karna",
+        "Date and time insert karna",
+        "Document title add karna"
+      ],
+      "teacherGuide": [
+        "Header aur Footer demonstrate karein",
+        "Page number options demonstrate karein"
+      ],
+      "studentTask": "3-page document mein header, footer aur page numbers add karein.",
+      "homework": "Header, Footer aur Page Number revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 30,
+      "title": "Result Sheet Project",
+      "week": 5,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Word mein professional result sheet create kar sake.",
+      "topics": [
+        "Roll No",
+        "Name",
+        "English",
+        "Computer",
+        "Math",
+        "Total",
+        "Remarks"
+      ],
+      "practical": [
+        "Result sheet table create karna",
+        "Roll No enter karna",
+        "Student Name enter karna",
+        "Subject marks enter karna",
+        "Total column add karna",
+        "Remarks column add karna",
+        "Table formatting karna"
+      ],
+      "teacherGuide": [
+        "Result sheet project demonstrate karein"
+      ],
+      "studentTask": "Professional student result sheet create karein.",
+      "homework": "Week 5 revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 31,
+      "title": "Spelling and Grammar",
+      "week": 6,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Word ke spelling aur grammar checking tools use kar sake.",
+      "topics": [
+        "Spelling Check",
+        "Grammar Check",
+        "Correction",
+        "AutoCorrect"
+      ],
+      "practical": [
+        "Spelling errors identify karna",
+        "Spelling suggestions use karna",
+        "Grammar suggestions check karna",
+        "Mistakes correct karna",
+        "AutoCorrect observe karna"
+      ],
+      "teacherGuide": [
+        "Spelling and Grammar tools demonstrate karein"
+      ],
+      "studentTask": "Mistakes wala paragraph correct karein.",
+      "homework": "Spelling and Grammar tools revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 32,
+      "title": "Thesaurus and Word Count",
+      "week": 6,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student synonyms aur document statistics check kar sake.",
+      "topics": [
+        "Thesaurus",
+        "Synonyms",
+        "Word Count",
+        "Document Statistics"
+      ],
+      "practical": [
+        "Word select karna",
+        "Thesaurus open karna",
+        "Synonym find karna",
+        "Word Count check karna",
+        "Document statistics observe karna"
+      ],
+      "teacherGuide": [
+        "Thesaurus aur Word Count demonstrate karein"
+      ],
+      "studentTask": "Paragraph mein 5 words ke synonyms find karein aur word count note karein.",
+      "homework": "Thesaurus aur Word Count revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 33,
+      "title": "Columns",
+      "week": 6,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student document ko multiple columns mein format kar sake.",
+      "topics": [
+        "One Column",
+        "Two Columns",
+        "Three Columns",
+        "Column Spacing",
+        "Column Width"
+      ],
+      "practical": [
+        "One-column layout",
+        "Two-column layout",
+        "Three-column layout",
+        "Column spacing adjust karna",
+        "Column width adjust karna"
+      ],
+      "teacherGuide": [
+        "Newspaper-style columns demonstrate karein"
+      ],
+      "studentTask": "Short article ko two-column aur three-column formats mein prepare karein.",
+      "homework": "Columns ke uses revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 34,
+      "title": "Printing and Print Preview",
+      "week": 6,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student print settings aur print preview correctly use kar sake.",
+      "topics": [
+        "Print Preview",
+        "Printer",
+        "Copies",
+        "Selected Pages",
+        "Page Range",
+        "Print"
+      ],
+      "practical": [
+        "Print Preview open karna",
+        "Printer select karna",
+        "Copies set karna",
+        "Selected pages print option observe karna",
+        "Page range set karna",
+        "Print settings check karna"
+      ],
+      "teacherGuide": [
+        "Print workflow demonstrate karein",
+        "Page range aur copies explain karein"
+      ],
+      "studentTask": "Document ka print preview prepare karein aur correct settings select karein.",
+      "homework": "Print Preview ke options revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 35,
+      "title": "CV and Resume Project",
+      "week": 6,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student basic professional CV/Resume create kar sake.",
+      "topics": [
+        "Name",
+        "Contact Information",
+        "Education",
+        "Skills",
+        "Experience",
+        "Career Objective",
+        "References"
+      ],
+      "practical": [
+        "Name add karna",
+        "Contact information add karna",
+        "Education section banana",
+        "Skills section banana",
+        "Experience section banana",
+        "Career objective add karna",
+        "References add karna",
+        "Professional formatting karna"
+      ],
+      "teacherGuide": [
+        "Simple professional CV structure demonstrate karein"
+      ],
+      "studentTask": "Apna basic professional CV Word mein create karein.",
+      "homework": "CV ke main sections revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 36,
+      "title": "MS Word Practical Test",
+      "week": 6,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Word ke major practical skills independently demonstrate kare.",
+      "topics": [
+        "Letter",
+        "Heading",
+        "Formatting",
+        "Table",
+        "Header",
+        "Footer",
+        "Page Number",
+        "Save",
+        "Print Preview"
+      ],
+      "practical": [
+        "Professional letter create karna",
+        "Heading format karna",
+        "Text formatting karna",
+        "Table insert karna",
+        "Header add karna",
+        "Footer add karna",
+        "Page number add karna",
+        "Document save karna",
+        "Print preview check karna"
+      ],
+      "teacherGuide": [
+        "Complete Word practical test conduct karein",
+        "Student performance record karein"
+      ],
+      "studentTask": "Complete Word practical test independently perform karein.",
+      "homework": "Week 3-6 ke Word topics revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 37,
+      "title": "MS Excel Introduction",
+      "week": 7,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Excel workbook aur worksheet ke basic components identify kar sake.",
+      "topics": [
+        "Workbook",
+        "Worksheet",
+        "Row",
+        "Column",
+        "Cell",
+        "Cell Address",
+        "Active Cell"
+      ],
+      "practical": [
+        "Excel open karna",
+        "Workbook identify karna",
+        "Worksheet identify karna",
+        "Rows identify karna",
+        "Columns identify karna",
+        "Cell identify karna",
+        "Cell address identify karna",
+        "Active cell identify karna"
+      ],
+      "teacherGuide": [
+        "Excel interface explain karein",
+        "Row, column aur cell relationship demonstrate karein"
+      ],
+      "studentTask": "Excel worksheet mein 10 different cell addresses identify karein.",
+      "homework": "Workbook, worksheet, row, column aur cell revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 38,
+      "title": "Excel Data Entry",
+      "week": 7,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Excel cells mein different types ka data enter aur edit kar sake.",
+      "topics": [
+        "Text",
+        "Numbers",
+        "Dates",
+        "Multiple Cells",
+        "Edit",
+        "Delete"
+      ],
+      "practical": [
+        "Text enter karna",
+        "Numbers enter karna",
+        "Dates enter karna",
+        "Multiple cells mein data enter karna",
+        "Cell edit karna",
+        "Cell data delete karna"
+      ],
+      "teacherGuide": [
+        "Different data types demonstrate karein"
+      ],
+      "studentTask": "Student information ka basic data sheet prepare karein.",
+      "homework": "Excel data types revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 39,
+      "title": "Rows and Columns",
+      "week": 7,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student rows aur columns insert, delete aur resize kar sake.",
+      "topics": [
+        "Insert Row",
+        "Delete Row",
+        "Insert Column",
+        "Delete Column",
+        "Row Height",
+        "Column Width"
+      ],
+      "practical": [
+        "Row insert karna",
+        "Row delete karna",
+        "Column insert karna",
+        "Column delete karna",
+        "Row height change karna",
+        "Column width change karna"
+      ],
+      "teacherGuide": [
+        "Row aur column management demonstrate karein"
+      ],
+      "studentTask": "Existing data sheet mein rows aur columns add/remove karein.",
+      "homework": "Rows aur columns shortcuts revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 40,
+      "title": "Excel Worksheets",
+      "week": 7,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student worksheets add, rename, delete, move aur copy kar sake.",
+      "topics": [
+        "Add Worksheet",
+        "Rename Worksheet",
+        "Delete Worksheet",
+        "Move Worksheet",
+        "Copy Worksheet"
+      ],
+      "practical": [
+        "New worksheet add karna",
+        "Worksheet rename karna",
+        "Worksheet delete karna",
+        "Worksheet move karna",
+        "Worksheet copy karna"
+      ],
+      "teacherGuide": [
+        "Worksheet tab management demonstrate karein"
+      ],
+      "studentTask": "Students, Marks aur Attendance naam se 3 worksheets create karein.",
+      "homework": "Worksheet management revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 41,
+      "title": "Excel Cell Formatting",
+      "week": 7,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Excel cells ko professional formatting ke sath prepare kar sake.",
+      "topics": [
+        "Font",
+        "Font Size",
+        "Bold",
+        "Italic",
+        "Underline",
+        "Font Color",
+        "Cell Color",
+        "Borders"
+      ],
+      "practical": [
+        "Font change karna",
+        "Font size change karna",
+        "Bold apply karna",
+        "Italic apply karna",
+        "Underline apply karna",
+        "Font color change karna",
+        "Cell color apply karna",
+        "Borders apply karna"
+      ],
+      "teacherGuide": [
+        "Cell formatting tools demonstrate karein"
+      ],
+      "studentTask": "Student data sheet ko professional formatting dein.",
+      "homework": "Excel formatting tools revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 42,
+      "title": "Excel Basic Test",
+      "week": 7,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student basic Excel data sheet independently create kar sake.",
+      "topics": [
+        "Roll No",
+        "Name",
+        "Father Name",
+        "Class",
+        "Subject",
+        "Marks",
+        "Formatting"
+      ],
+      "practical": [
+        "Roll No column create karna",
+        "Name column create karna",
+        "Father Name column create karna",
+        "Class column create karna",
+        "Subject column create karna",
+        "Marks enter karna",
+        "Basic formatting apply karna"
+      ],
+      "teacherGuide": [
+        "Basic Excel practical test conduct karein"
+      ],
+      "studentTask": "Complete student data sheet independently prepare karein.",
+      "homework": "Week 7 revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 43,
+      "title": "Basic Excel Formulas",
+      "week": 8,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student basic mathematical formulas Excel mein use kar sake.",
+      "topics": [
+        "Addition",
+        "Subtraction",
+        "Multiplication",
+        "Division",
+        "Percentage",
+        "Formula Syntax"
+      ],
+      "practical": [
+        "Addition formula use karna",
+        "Subtraction formula use karna",
+        "Multiplication formula use karna",
+        "Division formula use karna",
+        "Percentage calculate karna",
+        "Formula example =B2+C2",
+        "Formula example =B2*C2"
+      ],
+      "teacherGuide": [
+        "Formula ka = sign explain karein",
+        "Cell references demonstrate karein"
+      ],
+      "studentTask": "10 rows par basic mathematical calculations perform karein.",
+      "homework": "Basic formulas revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 44,
+      "title": "SUM Function",
+      "week": 8,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student SUM function se totals calculate kar sake.",
+      "topics": [
+        "SUM",
+        "AutoSum",
+        "Total Marks",
+        "Total Expenses"
+      ],
+      "practical": [
+        "SUM function use karna",
+        "AutoSum use karna",
+        "Total marks calculate karna",
+        "Total expenses calculate karna",
+        "Formula =SUM(B2:F2)"
+      ],
+      "teacherGuide": [
+        "SUM function demonstrate karein",
+        "AutoSum demonstrate karein"
+      ],
+      "studentTask": "Student marks aur expenses ka total calculate karein.",
+      "homework": "SUM aur AutoSum revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 45,
+      "title": "AVERAGE Function",
+      "week": 8,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student AVERAGE function se average values calculate kar sake.",
+      "topics": [
+        "AVERAGE",
+        "Marks Average",
+        "Sales Average",
+        "Expenses Average"
+      ],
+      "practical": [
+        "AVERAGE function use karna",
+        "Marks ka average calculate karna",
+        "Sales ka average calculate karna",
+        "Expenses ka average calculate karna",
+        "Formula =AVERAGE(B2:F2)"
+      ],
+      "teacherGuide": [
+        "AVERAGE function explain aur demonstrate karein"
+      ],
+      "studentTask": "Students ke marks ka average calculate karein.",
+      "homework": "AVERAGE formula revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 46,
+      "title": "MIN, MAX and COUNT",
+      "week": 8,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student MIN, MAX aur COUNT functions use kar sake.",
+      "topics": [
+        "MIN",
+        "MAX",
+        "COUNT",
+        "Lowest Value",
+        "Highest Value",
+        "Number Count"
+      ],
+      "practical": [
+        "MIN function use karna",
+        "MAX function use karna",
+        "COUNT function use karna",
+        "Formula =MIN(B2:B10)",
+        "Formula =MAX(B2:B10)",
+        "Formula =COUNT(B2:B10)"
+      ],
+      "teacherGuide": [
+        "MIN, MAX aur COUNT ka purpose explain karein"
+      ],
+      "studentTask": "Marks dataset mein minimum, maximum aur count calculate karein.",
+      "homework": "MIN, MAX aur COUNT revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 47,
+      "title": "Excel Number Formatting",
+      "week": 8,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student numbers, percentages, currency aur dates ko correctly format kar sake.",
+      "topics": [
+        "Decimals",
+        "Percentage",
+        "Currency",
+        "Date",
+        "Number Format"
+      ],
+      "practical": [
+        "Decimal places set karna",
+        "Percentage format apply karna",
+        "Currency format apply karna",
+        "Date format apply karna",
+        "Number format apply karna"
+      ],
+      "teacherGuide": [
+        "Number formatting options demonstrate karein"
+      ],
+      "studentTask": "Mixed data sheet ko appropriate number formats dein.",
+      "homework": "Percentage, Currency aur Date formatting revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 48,
+      "title": "Excel Marksheet Project",
+      "week": 8,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student formulas use karke complete marksheet create kar sake.",
+      "topics": [
+        "Name",
+        "English",
+        "Math",
+        "Computer",
+        "Physics",
+        "Chemistry",
+        "Total",
+        "Average",
+        "Percentage"
+      ],
+      "practical": [
+        "Student names enter karna",
+        "Subject marks enter karna",
+        "Total formula use karna",
+        "Average formula use karna",
+        "Percentage calculate karna",
+        "Formatting apply karna"
+      ],
+      "teacherGuide": [
+        "Complete marksheet project demonstrate karein"
+      ],
+      "studentTask": "10 students ki marksheet formulas ke sath prepare karein.",
+      "homework": "Week 8 revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 49,
+      "title": "Excel Charts Introduction",
+      "week": 9,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student data select karke basic charts create kar sake.",
+      "topics": [
+        "Charts",
+        "Data Selection",
+        "Column Chart",
+        "Bar Chart"
+      ],
+      "practical": [
+        "Data select karna",
+        "Column chart insert karna",
+        "Bar chart insert karna",
+        "Chart observe karna"
+      ],
+      "teacherGuide": [
+        "Charts ka purpose explain karein",
+        "Column aur Bar charts demonstrate karein"
+      ],
+      "studentTask": "Student marks data se column aur bar chart create karein.",
+      "homework": "Column aur Bar chart ka difference revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 50,
+      "title": "Line and Pie Charts",
+      "week": 9,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student different chart types create aur compare kar sake.",
+      "topics": [
+        "Line Chart",
+        "Pie Chart",
+        "Chart Comparison"
+      ],
+      "practical": [
+        "Line chart create karna",
+        "Pie chart create karna",
+        "Different chart types compare karna"
+      ],
+      "teacherGuide": [
+        "Line aur Pie charts demonstrate karein",
+        "Suitable chart selection explain karein"
+      ],
+      "studentTask": "Same dataset se Line aur Pie chart create karein.",
+      "homework": "Chart types revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 51,
+      "title": "Chart Formatting",
+      "week": 9,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student charts ko professional format aur layout de sake.",
+      "topics": [
+        "Chart Title",
+        "Legend",
+        "Data Selection",
+        "Resize",
+        "Move",
+        "Chart Formatting"
+      ],
+      "practical": [
+        "Chart title add karna",
+        "Legend manage karna",
+        "Data selection change karna",
+        "Chart resize karna",
+        "Chart move karna",
+        "Chart formatting apply karna"
+      ],
+      "teacherGuide": [
+        "Chart formatting tools demonstrate karein"
+      ],
+      "studentTask": "Existing chart ko professional presentation ke liye format karein.",
+      "homework": "Chart formatting options revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 52,
+      "title": "Sorting and Filtering Data",
+      "week": 9,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Excel data ko sort aur filter kar sake.",
+      "topics": [
+        "A-Z Sorting",
+        "Z-A Sorting",
+        "Number Sorting",
+        "Filter",
+        "Student Records"
+      ],
+      "practical": [
+        "A-Z sorting",
+        "Z-A sorting",
+        "Smallest to largest sorting",
+        "Largest to smallest sorting",
+        "Filter apply karna",
+        "Student records filter karna"
+      ],
+      "teacherGuide": [
+        "Sort aur Filter demonstrate karein"
+      ],
+      "studentTask": "Student records ko name aur marks ke according sort aur filter karein.",
+      "homework": "Sort aur Filter ka difference revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 53,
+      "title": "Excel Page Setup and Printing",
+      "week": 9,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Excel sheets ko print ke liye correctly prepare kar sake.",
+      "topics": [
+        "Margins",
+        "Orientation",
+        "Paper Size",
+        "Print Area",
+        "Page Break",
+        "Print Preview"
+      ],
+      "practical": [
+        "Margins set karna",
+        "Orientation change karna",
+        "Paper size select karna",
+        "Print area set karna",
+        "Page break insert karna",
+        "Print preview check karna"
+      ],
+      "teacherGuide": [
+        "Excel page setup demonstrate karein"
+      ],
+      "studentTask": "Marksheet ko print-ready format mein prepare karein.",
+      "homework": "Excel printing options revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 54,
+      "title": "Expense Management Project",
+      "week": 9,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Excel mein expense sheet, calculations aur chart create kar sake.",
+      "topics": [
+        "Date",
+        "Item",
+        "Category",
+        "Quantity",
+        "Price",
+        "Total",
+        "Chart"
+      ],
+      "practical": [
+        "Date column create karna",
+        "Item column create karna",
+        "Category column create karna",
+        "Quantity enter karna",
+        "Price enter karna",
+        "Total calculate karna",
+        "Expense chart create karna"
+      ],
+      "teacherGuide": [
+        "Expense management project demonstrate karein"
+      ],
+      "studentTask": "Monthly expense sheet formulas aur chart ke sath prepare karein.",
+      "homework": "Week 9 revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 55,
+      "title": "Google Chrome Introduction",
+      "week": 10,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Chrome browser ke basic controls use kar sake.",
+      "topics": [
+        "Google Chrome",
+        "Address Bar",
+        "New Tab",
+        "Close Tab",
+        "Back",
+        "Forward",
+        "Refresh",
+        "Home"
+      ],
+      "practical": [
+        "Chrome open karna",
+        "Address bar use karna",
+        "New tab open karna",
+        "Tab close karna",
+        "Back button use karna",
+        "Forward button use karna",
+        "Refresh karna",
+        "Home option use karna"
+      ],
+      "teacherGuide": [
+        "Chrome interface explain karein"
+      ],
+      "studentTask": "Chrome mein 5 websites open karke tabs manage karein.",
+      "homework": "Chrome basic controls revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 56,
+      "title": "Google Search",
+      "week": 10,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student effective Google searches perform kar sake.",
+      "topics": [
+        "Google Search",
+        "Keywords",
+        "Search Results",
+        "Suggestions",
+        "Exact Information"
+      ],
+      "practical": [
+        "Google search open karna",
+        "Keywords use karna",
+        "Search results check karna",
+        "Search suggestions use karna",
+        "Specific information find karna"
+      ],
+      "teacherGuide": [
+        "Effective keyword search demonstrate karein"
+      ],
+      "studentTask": "5 different topics par Google searches perform karein.",
+      "homework": "Effective search keywords revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 57,
+      "title": "Images, Videos and Maps",
+      "week": 10,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Google Images, Videos aur Maps basic level par use kar sake.",
+      "topics": [
+        "Google Images",
+        "Image Search",
+        "Video Search",
+        "Google Maps",
+        "Location Search"
+      ],
+      "practical": [
+        "Google Images search karna",
+        "Image search results explore karna",
+        "Videos search karna",
+        "Google Maps open karna",
+        "Location search karna"
+      ],
+      "teacherGuide": [
+        "Images, Videos aur Maps demonstrate karein"
+      ],
+      "studentTask": "Ek image, ek educational video aur ek location Google par find karein.",
+      "homework": "Google Images, Videos aur Maps revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 58,
+      "title": "Downloads and Bookmarks",
+      "week": 10,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Chrome se files download aur bookmarks manage kar sake.",
+      "topics": [
+        "Download File",
+        "Download Image",
+        "Downloads Folder",
+        "Delete Download",
+        "Bookmark",
+        "Remove Bookmark"
+      ],
+      "practical": [
+        "File download karna",
+        "Image download karna",
+        "Downloads folder open karna",
+        "Download delete karna",
+        "Website bookmark karna",
+        "Bookmark remove karna"
+      ],
+      "teacherGuide": [
+        "Safe download aur bookmark workflow demonstrate karein"
+      ],
+      "studentTask": "Ek safe educational file download aur ek useful website bookmark karein.",
+      "homework": "Downloads aur Bookmarks revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 59,
+      "title": "History, Tabs and Incognito",
+      "week": 10,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student browser history, tabs aur basic privacy mode samajh sake.",
+      "topics": [
+        "Browser History",
+        "Clear History",
+        "Multiple Tabs",
+        "Incognito Mode",
+        "Restore Closed Tab",
+        "Basic Settings"
+      ],
+      "practical": [
+        "History open karna",
+        "History clear options observe karna",
+        "Multiple tabs use karna",
+        "Incognito window open karna",
+        "Closed tab restore karna",
+        "Basic Chrome settings observe karna"
+      ],
+      "teacherGuide": [
+        "History aur Incognito ka purpose explain karein",
+        "Privacy limitations bhi explain karein"
+      ],
+      "studentTask": "Multiple tabs manage karein aur Incognito mode observe karein.",
+      "homework": "History aur Incognito ke uses revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 60,
+      "title": "Internet Practical Test",
+      "week": 10,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student basic Internet browsing tasks independently perform kare.",
+      "topics": [
+        "Search",
+        "Website",
+        "Image",
+        "Download",
+        "Bookmark",
+        "History"
+      ],
+      "practical": [
+        "Google search perform karna",
+        "Website open karna",
+        "Image search karna",
+        "File download karna",
+        "Website bookmark karna",
+        "History check karna"
+      ],
+      "teacherGuide": [
+        "Internet practical test conduct karein"
+      ],
+      "studentTask": "Complete Chrome practical test independently perform karein.",
+      "homework": "Week 10 revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 61,
+      "title": "Email Introduction and Gmail",
+      "week": 11,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student email aur Gmail ke basic concepts samajh kar inbox use kar sake.",
+      "topics": [
+        "Email",
+        "Email Address",
+        "Gmail",
+        "Login",
+        "Inbox"
+      ],
+      "practical": [
+        "Gmail open karna",
+        "Email account login karna",
+        "Inbox open karna",
+        "Email address identify karna"
+      ],
+      "teacherGuide": [
+        "Email concept explain karein",
+        "Gmail interface demonstrate karein"
+      ],
+      "studentTask": "Gmail inbox open karke main sections identify karein.",
+      "homework": "Email aur Gmail ki definitions revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 62,
+      "title": "Sending Email",
+      "week": 11,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student correctly formatted email compose aur send kar sake.",
+      "topics": [
+        "Compose",
+        "To",
+        "Subject",
+        "Message",
+        "Send",
+        "Draft"
+      ],
+      "practical": [
+        "Compose button use karna",
+        "To field fill karna",
+        "Subject enter karna",
+        "Message type karna",
+        "Email send karna",
+        "Draft observe karna"
+      ],
+      "teacherGuide": [
+        "Professional email structure demonstrate karein"
+      ],
+      "studentTask": "Teacher ko simple professional email compose aur send karein.",
+      "homework": "Email ke To, Subject aur Message fields revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 63,
+      "title": "Reply, Forward and Email Management",
+      "week": 11,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student emails ko reply, forward, archive aur delete kar sake.",
+      "topics": [
+        "Reply",
+        "Reply All",
+        "Forward",
+        "Delete",
+        "Spam",
+        "Archive"
+      ],
+      "practical": [
+        "Email reply karna",
+        "Reply All use karna",
+        "Email forward karna",
+        "Email delete karna",
+        "Spam folder observe karna",
+        "Email archive karna"
+      ],
+      "teacherGuide": [
+        "Reply, Reply All aur Forward ka difference explain karein"
+      ],
+      "studentTask": "Received email ko reply aur forward karke practice karein.",
+      "homework": "Reply, Reply All aur Forward revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 64,
+      "title": "Email Attachments",
+      "week": 11,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student email ke sath files aur images attach aur download kar sake.",
+      "topics": [
+        "Attachment",
+        "File Attachment",
+        "Image Attachment",
+        "Document Attachment",
+        "Download Attachment"
+      ],
+      "practical": [
+        "File attach karna",
+        "Image attach karna",
+        "Document attach karna",
+        "Attachment send karna",
+        "Received attachment download karna",
+        "Downloaded file open karna"
+      ],
+      "teacherGuide": [
+        "Attachment workflow demonstrate karein",
+        "Unknown attachments ke risks explain karein"
+      ],
+      "studentTask": "Ek document attach karke practice email send karein.",
+      "homework": "Email attachments ke safety rules revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 65,
+      "title": "Email Management",
+      "week": 11,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student Gmail inbox ko organize aur search kar sake.",
+      "topics": [
+        "Search Email",
+        "Labels",
+        "Organize",
+        "Sent",
+        "Draft",
+        "Trash",
+        "Spam"
+      ],
+      "practical": [
+        "Email search karna",
+        "Labels use karna",
+        "Emails organize karna",
+        "Sent folder open karna",
+        "Draft folder open karna",
+        "Trash folder open karna",
+        "Spam folder open karna"
+      ],
+      "teacherGuide": [
+        "Gmail organization features demonstrate karein"
+      ],
+      "studentTask": "Inbox mein emails search aur organize karein.",
+      "homework": "Gmail folders aur labels revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 66,
+      "title": "Internet Safety and Phishing",
+      "week": 11,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student common online scams, phishing aur unsafe downloads identify kar sake.",
+      "topics": [
+        "Strong Password",
+        "Fake Links",
+        "Phishing Email",
+        "Suspicious Attachments",
+        "Safe Downloads",
+        "Personal Information"
+      ],
+      "practical": [
+        "Strong password example understand karna",
+        "Fake link identify karna",
+        "Phishing email signs identify karna",
+        "Suspicious attachment identify karna",
+        "Safe download practices observe karna",
+        "Personal information protection rules learn karna"
+      ],
+      "teacherGuide": [
+        "Phishing examples explain karein",
+        "Strong password principles explain karein",
+        "Personal information safety explain karein"
+      ],
+      "studentTask": "Given examples mein safe aur unsafe online activities identify karein.",
+      "homework": "10 Internet safety rules revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 67,
+      "title": "Windows and File Management Revision",
+      "week": 12,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student complete file organization workflow independently perform kare.",
+      "topics": [
+        "Student Folder",
+        "Word Folder",
+        "Excel Folder",
+        "Images Folder",
+        "Documents Folder",
+        "Copy",
+        "Move",
+        "Rename",
+        "Delete"
+      ],
+      "practical": [
+        "Student_Name folder create karna",
+        "Word folder create karna",
+        "Excel folder create karna",
+        "Images folder create karna",
+        "Documents folder create karna",
+        "Files copy karna",
+        "Files move karna",
+        "Files rename karna",
+        "Unwanted files delete karna"
+      ],
+      "teacherGuide": [
+        "Complete file management workflow revise karein"
+      ],
+      "studentTask": "Apne naam ke folder mein complete organized structure prepare karein.",
+      "homework": "Windows aur file management revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 68,
+      "title": "Word Final Project - Academy Admission Form",
+      "week": 12,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student professional admission form Word mein create kar sake.",
+      "topics": [
+        "Academy Name",
+        "Student Name",
+        "Father Name",
+        "Address",
+        "Phone",
+        "Course",
+        "Table",
+        "Heading",
+        "Bullets",
+        "Page Number",
+        "Header",
+        "Footer"
+      ],
+      "practical": [
+        "Academy Name add karna",
+        "Student Name field add karna",
+        "Father Name field add karna",
+        "Address field add karna",
+        "Phone field add karna",
+        "Course field add karna",
+        "Admission table create karna",
+        "Heading formatting karna",
+        "Bullets add karna",
+        "Page number add karna",
+        "Header and Footer add karna",
+        "Professional formatting karna",
+        "Document save karna",
+        "Print preview check karna"
+      ],
+      "teacherGuide": [
+        "Admission form project demonstrate karein",
+        "Students ke final documents check karein"
+      ],
+      "studentTask": "Mustafa Digital Academy ka professional admission form create karein.",
+      "homework": "Word final project revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 69,
+      "title": "Excel Final Project - Student Result Management",
+      "week": 12,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student formulas, formatting, sorting aur charts use karke complete result management sheet bana sake.",
+      "topics": [
+        "Roll No",
+        "Student Name",
+        "English",
+        "Math",
+        "Computer",
+        "Physics",
+        "Total",
+        "Average",
+        "Percentage",
+        "Sorting",
+        "Chart",
+        "Print Preview"
+      ],
+      "practical": [
+        "Roll No enter karna",
+        "Student names enter karna",
+        "Subject marks enter karna",
+        "Total formula use karna",
+        "Average formula use karna",
+        "Percentage calculate karna",
+        "Professional formatting karna",
+        "Data sort karna",
+        "Chart create karna",
+        "Print preview check karna"
+      ],
+      "teacherGuide": [
+        "Complete result management project demonstrate karein"
+      ],
+      "studentTask": "Student Result Management workbook complete formulas aur chart ke sath prepare karein.",
+      "homework": "Excel final project revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 70,
+      "title": "Chrome and Email Final Practical",
+      "week": 12,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student browser aur email ke complete practical workflow independently perform kare.",
+      "topics": [
+        "Chrome",
+        "Google Search",
+        "Website",
+        "Image Download",
+        "File Download",
+        "Gmail",
+        "Compose",
+        "Subject",
+        "Attachment",
+        "Send",
+        "Reply"
+      ],
+      "practical": [
+        "Chrome open karna",
+        "Google search perform karna",
+        "Website open karna",
+        "Image search karna",
+        "File download karna",
+        "Gmail open karna",
+        "Email compose karna",
+        "Subject enter karna",
+        "File attach karna",
+        "Email send karna",
+        "Email reply karna"
+      ],
+      "teacherGuide": [
+        "Complete Chrome and Email practical workflow demonstrate karein"
+      ],
+      "studentTask": "Complete Internet and Email final practical independently perform karein.",
+      "homework": "Final exam ke liye Week 1-11 revise karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 60
+      }
+    },
+
+    {
+      "day": 71,
+      "title": "Mock Practical Examination",
+      "week": 12,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student final practical examination ke format mein complete tasks perform kare.",
+      "topics": [
+        "Windows",
+        "MS Word",
+        "MS Excel",
+        "Google Chrome",
+        "Email"
+      ],
+      "practical": [
+        "Windows Practical - 20 Marks",
+        "MS Word Practical - 30 Marks",
+        "MS Excel Practical - 30 Marks",
+        "Chrome and Email Practical - 20 Marks"
+      ],
+      "teacherGuide": [
+        "100 marks mock practical exam conduct karein",
+        "Windows section 20 marks",
+        "Word section 30 marks",
+        "Excel section 30 marks",
+        "Chrome and Email section 20 marks",
+        "Student mistakes record karein"
+      ],
+      "studentTask": "100 marks mock practical examination independently complete karein.",
+      "homework": "Weak areas revise karein.",
+      "assessment": {
+        "enabled": true,
+        "totalMarks": 100,
+        "passingMarks": 50,
+        "sections": {
+          "windows": 20,
+          "word": 30,
+          "excel": 30,
+          "chromeAndEmail": 20
+        },
+        "resultBands": {
+          "50-59": "Pass",
+          "60-69": "Good",
+          "70-79": "Very Good",
+          "80-89": "Excellent",
+          "90-100": "Outstanding"
+        }
+      }
+    },
+
+    {
+      "day": 72,
+      "title": "Final Practical Examination and Course Completion",
+      "week": 12,
+      "duration": 120,
+      "unlockAfterPrevious": 1440,
+      "learningOutcome": "Student complete 72-day computer course ki practical skills demonstrate karke final assessment complete kare.",
+      "topics": [
+        "Windows",
+        "File Management",
+        "MS Word",
+        "MS Excel",
+        "Google Chrome",
+        "Email",
+        "Internet Safety"
+      ],
+      "practical": [
+        "Windows basic operation",
+        "Folder and file management",
+        "Professional Word document create karna",
+        "Excel marksheet/formulas create karna",
+        "Excel chart create karna",
+        "Google search perform karna",
+        "File download karna",
+        "Gmail email compose karna",
+        "Attachment send karna",
+        "Email reply karna",
+        "Internet safety rules demonstrate karna"
+      ],
+      "teacherGuide": [
+        "Final practical examination conduct karein",
+        "Student ke complete practical skills evaluate karein",
+        "Final marks record karein",
+        "Successful students ko course completion status dein"
+      ],
+      "studentTask": "Final practical examination complete karein aur assigned tasks independently perform karein.",
+      "homework": "Course complete hone ke baad learned computer skills ki regular practice continue karein.",
+      "assessment": {
+        "enabled": true,
+        "passingMarks": 50,
+        "finalExam": true,
+        "certificateEligible": true,
+        "resultBands": {
+          "50-59": "Pass",
+          "60-69": "Good",
+          "70-79": "Very Good",
+          "80-89": "Excellent",
+          "90-100": "Outstanding"
+        }
+      }
+    }
+  ]
+}
